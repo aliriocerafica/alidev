@@ -45,8 +45,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center mx-auto items-center w-3/5">
-      <div className="w-3/5 mb-10">
+    <div className="flex justify-center mx-auto items-center  w-4/5">
+      <div className="w-4/6 mb-10">
         <div className="container p-4 text-white">
           <h1 className="text-3xl gradient-text font-semibold mb-4 text-center">Contact Me</h1>
           <form onSubmit={handleSubmit} className="max-w-full">
