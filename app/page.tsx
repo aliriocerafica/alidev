@@ -36,7 +36,18 @@ const Page = () => {
       window.removeEventListener("scroll", handleScrollAnimations);
     };
   }, []);
-
+  useEffect(() => {
+    const handleContextMenu = (e: { preventDefault: () => void; }) => {
+      e.preventDefault();
+      // Optionally, you can alert or inform the user that inspecting is disabled
+    };
+  
+    document.addEventListener("contextmenu", handleContextMenu);
+    
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
   return (
     <body className="bg-[#0c1c29] min-h-screen fade-in">
       <div>
@@ -53,7 +64,7 @@ const Page = () => {
               />
             </div>
             <div className="md:order-1 text-white mt-20">
-              <h2 className="text-6xl font-bold mb-2 gradient-text animate-slide-in slide-in">
+              <h2 className="text-5xl font-bold mb-2 gradient-text animate-slide-in slide-in">
                 Hi, I'm Ali Cerafica
               </h2>
               <h2 className="text-3xl font-bold mb-2 animate-slide-in slide-in">
