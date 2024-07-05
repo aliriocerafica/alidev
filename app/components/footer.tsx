@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="flex mt-2">
               <div className="mr-4">
                 <a href="https://Facebook.com">
-                  <Image src="/facebook.svg" width={32} height={32} alt="Facebook" />
+                  <Image src="/Facebook.svg" width={32} height={32} alt="Facebook" />
                 </a>
               </div>
               <div className="mr-4">
