@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import Navbar from '../components/navbar';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import "../css/home.css";
@@ -36,7 +37,6 @@ const Education = () => {
     {
       imageSrc: "graduate.png",
       title: "Basic Education - Proper Bansud Elementary School",
-      // school: "University of Makati",
       date: "2007 - 2013",
     }
   ];
@@ -73,20 +73,29 @@ const Education = () => {
                   <div className="flex flex-col md:flex-row w-full">
                     <div className="flex-1 text-center  relative flex justify-center items-center">
                       <div className="w-full h-auto md:w-full md:h-auto overflow-hidden mx-auto flex ">
-                        <img
-                          src={item.imageSrc}
-                          alt="Profile Picture"
+                        <Image
+                          src={`/${item.imageSrc}`} // Ensure the leading slash is included for the image path
+                          alt={item.title}
+                          width={500} // specify the width of the image
+                          height={500} // specify the height of the image
                           className="w-full h-auto  profile-img"
                         />
                       </div>
                     </div>
                     <div className="flex-1 text-center gradient-text p-18 mt-24  text-6xl md:text-md font-semibold md:text-left">
-                      <h1 >{item.title}</h1>
-                      {item.school && <h2 className="text-2xl mt-4">{item.school} <img
-                  src="/svg/location-dot-solid.svg"
-                  alt="Code Icon"
-                  className="inline w-6 h-6 beat-fade"
-                /></h2>}
+                      <h1>{item.title}</h1>
+                      {item.school && (
+                        <h2 className="text-2xl mt-4">
+                          {item.school} 
+                          <Image
+                            src="/svg/location-dot-solid.svg"
+                            alt="Location Icon"
+                            width={24} // specify the width of the image
+                            height={24} // specify the height of the image
+                            className="inline w-6 h-6 beat-fade"
+                          />
+                        </h2>
+                      )}
                       <div className="text-2xl mt-8 font-semibold text-white">
                         <p>{item.date}</p>
                       </div>
