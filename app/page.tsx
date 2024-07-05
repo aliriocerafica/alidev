@@ -35,6 +35,7 @@ const Page = () => {
     return () => {
       window.removeEventListener("scroll", handleScrollAnimations);
     };
+    
   }, []);
   useEffect(() => {
     const handleContextMenu = (e: { preventDefault: () => void; }) => {
