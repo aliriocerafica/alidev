@@ -131,6 +131,13 @@ const Navbar = () => {
                   >
                     Skills
                   </Link>
+                  <Link
+                    href="#skills"
+                    onClick={(e) => handleSmoothScroll(e, "skills")}
+                    className="block text-lg hover:font-bold"
+                  >
+                    Certificate
+                  </Link>
                 </div>
               </div>
             </div>
@@ -172,6 +179,15 @@ const Navbar = () => {
               }`}
             >
               Skills
+            </Link>
+            <Link
+              href="#skills"
+              onClick={(e) => handleSmoothScroll(e, "skills")}
+              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              Cetificate
             </Link>
           </div>
 

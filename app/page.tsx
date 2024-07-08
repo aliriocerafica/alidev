@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Education from "./components/education";
 import Contact from "./components/contact";
 import Image from "next/image";
+import Certificate from "./components/certificate";
 
 import "./css/home.css";
 
@@ -35,16 +36,15 @@ const Page = () => {
     return () => {
       window.removeEventListener("scroll", handleScrollAnimations);
     };
-    
   }, []);
   useEffect(() => {
-    const handleContextMenu = (e: { preventDefault: () => void; }) => {
+    const handleContextMenu = (e: { preventDefault: () => void }) => {
       e.preventDefault();
       // Optionally, you can alert or inform the user that inspecting is disabled
     };
-  
+
     document.addEventListener("contextmenu", handleContextMenu);
-    
+
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu);
     };
@@ -57,10 +57,12 @@ const Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="md:order-2">
               <Image
-                src="/profile.png"
+                src="/p3.png"    
+                // src="/p2.png"    
+                // src="/blurP.png"
                 alt="Image"
-                width={500} // specify the width of the image
-                height={500} // specify the height of the image
+                width={1000} // specify the width of the image
+                height={1000} // specify the height of the image
                 className="w-auto h-auto md:float-right animate-float"
               />
             </div>
@@ -101,11 +103,11 @@ const Page = () => {
                   className="flex mr-4"
                 >
                   <Image
-                    src="/gitIcon.png"
+                    src="/gitCsvg.svg"
                     alt="GitHub Logo"
-                    width={32} // specify the width of the icon
-                    height={32} // specify the height of the icon
-                    className="w-8 h-8 rounded-sm"
+                    width={1000} // specify the width of the icon
+                    height={100} // specify the height of the icon
+                    className="w-10 h-10 rounded-sm fade-animation"
                     style={{ cursor: "pointer" }}
                   />
                 </a>
@@ -113,14 +115,14 @@ const Page = () => {
                   href="https://www.facebook.com/RioCer22/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex mr-4"
+                  className="flex mr-4 fade-animation"
                 >
                   <Image
-                    src="/fbIcon.png"
+                    src="/fbCsvg.svg"
                     alt="Facebook Logo"
-                    width={32} // specify the width of the icon
-                    height={32} // specify the height of the icon
-                    className="w-8 h-8 rounded-sm"
+                    width={1000} // specify the width of the icon
+                    height={100} // specify the height of the icon
+                    className="w-10 h-10 rounded-sm"
                     style={{ cursor: "pointer" }}
                   />
                 </a>
@@ -131,11 +133,11 @@ const Page = () => {
                   className="flex"
                 >
                   <Image
-                    src="/indeedIcon.png"
+                    src="/inCsvg.svg"
                     alt="LinkedIn Logo"
-                    width={32} // specify the width of the icon
-                    height={32} // specify the height of the icon
-                    className="w-8 h-8 rounded-sm"
+                    width={1000} // specify the width of the icon
+                    height={100} // specify the height of the icon
+                    className="w-10 h-10 rounded-sm fade-animation "
                     style={{ cursor: "pointer" }}
                   />
                 </a>
@@ -184,10 +186,10 @@ const Page = () => {
           id="Works"
           className="works w-full h-auto mx-auto mt-10 mb-28 animate-on-scroll"
         >
-          <div className="Work mx-auto w-4/5  mb-36 p-2">
+          <div className="Work mx-auto w-4/5  p-2">
             <div className="about mx-auto w-full p-2 text-2xl gradient-text text-center font-bold mt-6">
               <h1>Works</h1>
-              <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 rounded-full"></div>
+              <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 mb-24 rounded-full"></div>
             </div>
             <div className="flex justify-center items-center mt-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
@@ -327,8 +329,8 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div id="skills">
-          <div className="text-center text-2xl gradient-text font-bold mb-10 animate-pulse ">
+        <div id="skills" className="mt-32">
+          <div className="text-center text-2xl gradient-text font-bold animate-pulse ">
             <h1>
               Tech Skills{" "}
               <Image
@@ -342,7 +344,7 @@ const Page = () => {
             </h1>
           </div>
         </div>
-        <div className="skills-section">
+        <div  className="skills-section fade-animation">
           <div className="mx-auto w-full p-8 mb-24">
             <div className="techstack overflow-x-auto mb-24">
               <ul className="flex flex-wrap justify-center gap-8 md:gap-20 text-lg">
@@ -430,6 +432,10 @@ const Page = () => {
               </ul>
             </div>
           </div>
+        </div>
+
+        <div id="skills">
+          <Certificate />
         </div>
         <div id="contact">
           <Contact />

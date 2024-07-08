@@ -64,11 +64,11 @@ const Contact = () => {
                 />
               </div>
               <div className="w-full md:w-1/2 md:pl-2">
-                <label htmlFor="email" className="block mb-2">Email</label>
+                <label htmlFor="email" className="block mb-2"> Your Email</label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="Your Email"
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border text-black border-gray-300 rounded-md"
