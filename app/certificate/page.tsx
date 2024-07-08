@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen mt-32">
         <div className="certificate mx-auto w-4/5 mb-36 p-2">
           <div className="flex justify-center items-center mt-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
