@@ -37,7 +37,7 @@ const Certificate = () => {
             </p>
 
             <Link href="/certificate">
-                <p className="font-normal border-2 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
+                <p className="font-normal border-2 text-white w-36 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
                   View Certificates
                 </p>
               </Link>
