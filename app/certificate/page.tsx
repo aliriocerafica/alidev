@@ -98,6 +98,69 @@ const Page = () => {
                   </a>
                 </div>
               </div>
+              <div className="box2 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center border-2  border-[#7484dd]">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/cert5.png"
+                    alt="Image"
+                    width={400}
+                    height={400}
+                    className="w-auto lg:w-[500px] h-60 rounded-md"
+                  />
+                </div>
+                <div className="mt-4 flex justify-center">
+                  <a
+                    href="https://drive.google.com/file/d/19jCo2glV2Si9in36uswi8a_DpjmrkZkC/view?usp=sharing"
+                    target="_blank"
+                  >
+                    <button className="flex justify-center items-center text-sm border-2 w-32 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                      <span className="text-center w-full">View</span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div className="box2 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center border-2  border-[#7484dd]">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/cert6.jpg"
+                    alt="Image"
+                    width={400}
+                    height={400}
+                    className="w-auto lg:w-[500px] h-60 rounded-md"
+                  />
+                </div>
+                <div className="mt-4 flex justify-center">
+                  <a
+                    href="https://drive.google.com/file/d/1BIzMoMVQRdrAW4EZ5f1pQtm6ayNf1qIg/view?usp=sharing"
+                    target="_blank"
+                  >
+                    <button className="flex justify-center items-center text-sm border-2 w-32 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                      <span className="text-center w-full">View</span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div className="box2 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center border-2  border-[#7484dd]">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/cert7.png"
+                    alt="Image"
+                    width={400}
+                    height={400}
+                    className="w-auto lg:w-[500px] h-60 rounded-md"
+                  />
+                </div>
+                <div className="mt-4 flex justify-center">
+                  <a
+                    href="https://drive.google.com/file/d/1mDVnyou7b2rJc6cYhlICOKqDiBDxm_XM/view?usp=sharing"
+                    target="_blank"
+                  >
+                    <button className="flex justify-center items-center text-sm border-2 w-32 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                      <span className="text-center w-full">View</span>
+                    </button>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

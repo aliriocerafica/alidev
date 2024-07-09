@@ -147,7 +147,7 @@ const Page = () => {
         </div>
         <div
           id="about"
-          className="about mx-auto w-3/5 p-2 text-2xl gradient-text text-center font-bold mt-24 animate-on-scroll"
+          className="about mx-auto w-3/5 p-2 text-2xl gradient-text text-center font-bold mt-20 animate-on-scroll"
         >
           <h1>About Me</h1>
           <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 rounded-full"></div>

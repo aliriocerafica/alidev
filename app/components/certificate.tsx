@@ -42,6 +42,7 @@ const Certificate = () => {
                 </p>
               </Link>
           </div>
+          
         </div>
       </div>
     </div>
