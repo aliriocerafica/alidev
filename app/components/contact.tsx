@@ -23,8 +23,8 @@ const Contact = () => {
       'service_04g4vib', // Your EmailJS service ID
       'template_4g87k1n', // Your EmailJS template ID
       {
-        to_name: formData.name,
-        from_name: 'Alejandro Cerafica Jr',
+        to_name: 'Alejandro',
+        from_name: formData.name,
         message: formData.message
       },
       'OSA-4KXYSqHWlOiW9' // Replace with your EmailJS user ID
