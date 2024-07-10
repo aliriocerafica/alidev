@@ -201,11 +201,11 @@ const Page = () => {
                 >
                   <div className="flex justify-center items-center">
                     <Image
-                      src="/petTaxi.png"
+                      src="/Pet.png"
                       alt="Image"
-                      width={200} // specify the width of the image
-                      height={200} // specify the height of the image
-                      className="w-auto lg:w-[200px] h-auto"
+                      width={1200} // specify the width of the image
+                      height={1200} // specify the height of the image
+                      className="w-auto lg:w-[250px] h-auto"
                     />
                   </div>
                   <div className="mt-4 text-left">
@@ -267,10 +267,10 @@ const Page = () => {
                 >
                   <div className="flex justify-center items-center">
                     <Image
-                      src="/W.png"
+                      src="/Watch.png"
                       alt="Image"
-                      width={200} // specify the width of the image
-                      height={200} // specify the height of the image
+                      width={1200} // specify the width of the image
+                      height={1200} // specify the height of the image
                       className="w-auto lg:w-[250px] h-auto"
                     />
                   </div>
@@ -302,8 +302,8 @@ const Page = () => {
                     <Image
                       src="/eBasa1.svg"
                       alt="Image"
-                      width={200} // specify the width of the image
-                      height={200} // specify the height of the image
+                      width={1000} // specify the width of the image
+                      height={1000} // specify the height of the image
                       className="w-auto lg:w-[370px] h-auto"
                     />
                   </div>
