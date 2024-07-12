@@ -6,7 +6,7 @@ import Education from "./components/education";
 import Contact from "./components/contact";
 import Image from "next/image";
 import Certificate from "./components/certificate";
-
+import Works from "./components/works";
 import "./css/home.css";
 
 const Page = () => {
@@ -186,148 +186,8 @@ const Page = () => {
           id="Works"
           className="works w-full h-auto mx-auto mt-10 mb-28 animate-on-scroll"
         >
-          <div className="Work mx-auto w-4/5  p-2">
-            <div className="about mx-auto w-full p-2 text-2xl gradient-text text-center font-bold mt-6">
-              <h1>Works</h1>
-              <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 mb-24 rounded-full"></div>
-            </div>
-            <div className="flex justify-center items-center mt-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
-                <div
-                  className="box1 rounded-md min-h-[100px] min-w-[50px]  w-full h-full flex flex-col justify-between p-4 text-center"
-                  style={{
-                    background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-                  }}
-                >
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src="/Pet.png"
-                      alt="Image"
-                      width={1200} // specify the width of the image
-                      height={1200} // specify the height of the image
-                      className="w-auto lg:w-[250px] h-auto"
-                    />
-                  </div>
-                  <div className="mt-4 text-left">
-                    <a
-                      href="https://www.figma.com/design/cmJrmeFFeHKCGYFaedkmY5/Pet-Taxi-Mobile-Alidev?node-id=0-1&t=VYwBzxbrfKRb9mxd-1"
-                      target="_blank"
-                    >
-                      <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                        <span>View</span>
-                        <Image
-                          src="/dev/Group 16.svg"
-                          alt="Other Logo"
-                          width={16} // specify the width of the icon
-                          height={16} // specify the height of the icon
-                          className="w-4 h-4 ml-2"
-                        />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="box2 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center"
-                  style={{
-                    background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-                  }}
-                >
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src="/eB.png"
-                      alt="Image"
-                      width={400} // specify the width of the image
-                      height={400} // specify the height of the image
-                      className="w-auto lg:w-[450px] h-auto"
-                    />
-                  </div>
-                  <div className="mt-4 text-left">
-                    <a
-                      href="https://www.figma.com/design/t53wU5lvmslTRHLQb2HEAb/Ebarangay?node-id=0-1&t=4u7qiusbrmlF9T8Q-1"
-                      target="_blank"
-                    >
-                      <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                        <span>View</span>
-                        <Image
-                          src="/dev/Group 16.svg"
-                          alt="Other Logo"
-                          width={16} // specify the width of the icon
-                          height={16} // specify the height of the icon
-                          className="w-4 h-4 ml-2"
-                        />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="box3 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center"
-                  style={{
-                    background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-                  }}
-                >
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src="/Watch.png"
-                      alt="Image"
-                      width={1200} // specify the width of the image
-                      height={1200} // specify the height of the image
-                      className="w-auto lg:w-[250px] h-auto"
-                    />
-                  </div>
-                  <div className="mt-4 text-left">
-                    <a
-                      href="https://www.figma.com/design/Y3wrqCns3xbytwih42GlQs/Watch?t=4u7qiusbrmlF9T8Q-1"
-                      target="_blank"
-                    >
-                      <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                        <span>View</span>
-                        <Image
-                          src="/dev/Group 16.svg"
-                          alt="Other Logo"
-                          width={16} // specify the width of the icon
-                          height={16} // specify the height of the icon
-                          className="w-4 h-4 ml-2"
-                        />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className="box4 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center"
-                  style={{
-                    background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-                  }}
-                >
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src="/eBasa1.svg"
-                      alt="Image"
-                      width={1000} // specify the width of the image
-                      height={1000} // specify the height of the image
-                      className="w-auto lg:w-[370px] h-auto"
-                    />
-                  </div>
-                  <div className="mt-4 text-left">
-                    <a
-                      href="https://www.figma.com/design/k50orFt2KS10oUn2st8Xdh/Ebasa?node-id=0-1&t=x7eLKzUTYnfKNFBo-1"
-                      target="_blank"
-                    >
-                      <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                        <span>View</span>
-                        <Image
-                          src="/dev/Group 16.svg"
-                          alt="Other Logo"
-                          width={16} // specify the width of the icon
-                          height={16} // specify the height of the icon
-                          className="w-4 h-4 ml-2"
-                        />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          < Works/>
+    
         </div>
         <div id="skills" className="mt-32">
           <div className="text-center text-2xl gradient-text font-bold animate-pulse ">
