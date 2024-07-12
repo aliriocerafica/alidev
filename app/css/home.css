@@ -23,8 +23,7 @@
   .spin {
     animation: spin 2s linear infinite;
   }
-  /* home.css or custom.css */
-/* home.css or custom.css */
+
 @keyframes slideInName {
     0% {
       opacity: 0;
@@ -46,8 +45,8 @@
   
   .animate-typing {
     display: inline-block;
-    overflow: hidden; /* Ensures the text is hidden until animated */
-    animation: typing 2s steps(30, end); /* Adjust timing as needed */
+    overflow: hidden; 
+    animation: typing 2s steps(30, end); 
   }
   /* CSS Code */
   .swiper-wrapper {
@@ -61,10 +60,7 @@
     .swiper-pagination-bullet {
     background: #4f46e5;
     }
-    
 
-    /* scroll animation */
-/* Add these animations to your CSS file (home.css) */
 
 
 @keyframes slideInFromLeft {
@@ -78,14 +74,6 @@
   }
 }
 
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
 
 .animate-slide-in {
   animation: slideInFromLeft 1s ease-in-out;

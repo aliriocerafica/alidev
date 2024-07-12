@@ -9,7 +9,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
-  const [isSent, setIsSent] = useState(false); // State to track if message is sent
+  const [isSent, setIsSent] = useState(false);
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
@@ -20,18 +20,18 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.send(
-      'service_04g4vib', // Your EmailJS service ID
-      'template_4g87k1n', // Your EmailJS template ID
+      'service_04g4vib', 
+      'template_4g87k1n', 
       {
         to_name: 'Alejandro',
         from_name: formData.name,
         message: formData.message
       },
-      'OSA-4KXYSqHWlOiW9' // Replace with your EmailJS user ID
+      'OSA-4KXYSqHWlOiW9' 
     )
       .then((response) => {
         console.log('Email sent!', response.status, response.text);
-        setIsSent(true); // Set isSent to true on successful email send
+        setIsSent(true); 
         setFormData({
           name: '',
           email: '',

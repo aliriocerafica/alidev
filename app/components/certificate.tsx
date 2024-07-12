@@ -12,8 +12,8 @@ const Certificate = () => {
           <Image
             src="/cert1.jpg"
             alt="Image"
-            width={500} // specify the width of the image
-            height={500} // specify the height of the image
+            width={500} 
+            height={500} 
             className="w-full lg:w-[500px] h-auto rounded-md"
           />
         </div>
@@ -24,8 +24,8 @@ const Certificate = () => {
               <Image
                 src="/cert.svg"
                 alt="Code Icon"
-                width={24} // specify the width of the icon
-                height={24} // specify the height of the icon
+                width={24}
+                height={24} 
                 className="inline w-12 h-12 beat-fade fade-animation"
               />
             </h2>
@@ -37,12 +37,11 @@ const Certificate = () => {
             </p>
 
             <Link href="/certificate">
-                <p className="font-normal border-2 text-white w-36 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
-                  View Certificates
-                </p>
-              </Link>
+              <p className="font-normal border-2 text-white w-36 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
+                View Certificates
+              </p>
+            </Link>
           </div>
-          
         </div>
       </div>
     </div>

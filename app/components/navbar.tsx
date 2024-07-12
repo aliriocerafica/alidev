@@ -77,7 +77,7 @@ const Navbar = () => {
           <div
             className={`logo ml-2 font-bold ${isScrolled ? "text-black" : ""}`}
           >
-            <h1>Alidev</h1>
+            <h1><span className="text-[#7786df] text-2xl">ali</span>DEV</h1>
           </div>
 
           {/* Mobile Menu Icon */}

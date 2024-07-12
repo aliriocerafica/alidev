@@ -13,10 +13,10 @@ const Education = () => {
         <div className="content w-full lg:w-3/5 h-auto mx-auto flex flex-col lg:flex-row p-8">
           <div className="w-full lg:w-1/2 flex justify-center items-center">
             <Image
-              src="/umakEdu.png" // Ensure the leading slash is included for the image path
+              src="/umakEdu.png" 
               alt="University of Makati"
-              width={500} // specify the width of the image
-              height={500} // specify the height of the image
+              width={500}
+              height={500}
               className="w-full lg:w-[500px] h-auto"
             />
           </div>
