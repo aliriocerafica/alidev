@@ -12,7 +12,7 @@ const Works = () => {
         <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 mb-24 rounded-full"></div>
       </div>
       <div className="flex justify-center items-center mt-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
           <div
             className="box1 rounded-md min-h-[100px] min-w-[50px]  w-full h-full flex flex-col justify-between p-4 text-center"
             style={{
@@ -156,6 +156,52 @@ const Works = () => {
                 </a>
               </div>
             </div>
+            
+          </div>
+          <div
+            className="box4 rounded-md min-h-[100px] min-w-[50px] flex flex-col justify-between p-4 text-center"
+            style={{
+              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
+            }}
+          >
+            <div className="flex justify-center items-center">
+              <Image
+                src="/project5.png"
+                alt="Image"
+                width={1200} // specify the width of the image
+                height={1200} // specify the height of the image
+                className="w-auto lg:w-[430px] h-auto pt-8"
+              />
+            </div>
+            <div className="mt-4 text-left">
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.figma.com/design/O1Utop0WQWW7AKnoqKxAyL/Coffee-Shop?node-id=0-1&t=6y5oP29Ybk4xVHtK-1"
+                  target="_blank"
+                >
+                  <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                    <span>View</span>
+                    <Image
+                      src="/dev/Group 16.svg"
+                      alt="Other Logo"
+                      width={16} // specify the width of the icon
+                      height={16} // specify the height of the icon
+                      className="w-4 h-4 ml-2"
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/aliriocerafica/alidev"
+                  target="_blank"
+                >
+                  {/* <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                    <span>Git Repository</span>
+                
+                  </button> */}
+                </a>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
