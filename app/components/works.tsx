@@ -25,7 +25,7 @@ const Works = () => {
                 alt="Image"
                 width={1200} // specify the width of the image
                 height={1200} // specify the height of the image
-                className="w-auto lg:w-[250px] h-auto"
+                className="w-auto lg:w-[250px] h-auto pt-12"
               />
             </div>
             <div className="mt-4 text-left">
@@ -92,7 +92,7 @@ const Works = () => {
                 alt="Image"
                 width={1200} // specify the width of the image
                 height={1200} // specify the height of the image
-                className="w-auto lg:w-[250px] h-auto"
+                className="w-auto lg:w-[250px] h-auto pt-12"
               />
             </div>
             <div className="mt-4 text-left">
