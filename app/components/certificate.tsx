@@ -21,17 +21,17 @@ const Certificate = () => {
         </div>
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <div className="text-content px-4 lg:px-0 text-center lg:text-left animate-on-scroll">
-            <h2 className="text-3xl font-bold  gradient-text mb-6">
+            <h2 className="text-2xl font-bold  gradient-text mb-6">
               Certificates{" "}
               <Image
                 src="/cert.svg"
                 alt="Code Icon"
-                width={24}
-                height={24} 
-                className="inline w-12 h-12 beat-fade fade-animation"
+                width={18}
+                height={18} 
+                className="inline w-10 h-10 beat-fade fade-animation"
               />
             </h2>
-            <p className="mt-2 mb-12 text-base text-gray-300">
+            <p className="mt-2 mb-12  text-gray-300 text-base font-normal">
               All <span className="font-bold">certificates </span>
               were obtained during my college years, reflecting my commitment to
               learning and personal growth through dedicated effort and

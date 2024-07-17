@@ -30,15 +30,15 @@ const Education = () => {
           </div>
           <div className="w-full lg:w-1/2 flex justify-center">
             <div className="text-content px-4 lg:px-0">
-              <h2 className="text-4xl font-bold mt-12 gradient-text mb-6">
+              <h2 className="text-2xl font-bold mt-12 gradient-text ">
                 University Of Makati
               </h2>
-              <p className="mt-2 mb-12 text-white text-2xl">
+              <p className="mt-2 mb-6 text-white text-lg">
                 Bachelor of Science in Computer Science Major in
                 <span className="font-bold"> Application Development</span>
               </p>
-              <p className="mt-2 mb-12 gradient-text font-bold text-2xl">
-                2022 - 2024
+              <p className="mt-2 mb-24 text-white font-bold text-lg">
+                <span className="font-normal"> School Year   </span>2022 - 2024
               </p>
               <Link href="/eduation">
       <motion.p

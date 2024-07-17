@@ -41,14 +41,14 @@ const Page = () => {
     <body className="bg-[#0c1c29] min-h-screen fade-in">
       <div>
         <Navbar />
-        <div className="profile mx-auto w-3/5 p-4 mt-36">
+        <div className="profile mx-auto w-3/5 mt-36">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="md:order-2">
               <Image
                 src="/p3.png"
                 alt="Image"
-                width={1000}
-                height={1000}
+                width={1400}
+                height={1400}
                 className="w-auto h-auto md:float-right animate-float"
               />
             </div>
@@ -62,7 +62,7 @@ const Page = () => {
                 Hi, I'm Ali Cerafica
               </motion.h2>
               <motion.h2
-                className="text-3xl font-bold mb-2"
+                className="text-2xl font-bold mb-2"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -96,7 +96,7 @@ const Page = () => {
                 />
               </motion.h2>
               <motion.p
-                className="text-gray-400 mt-4"
+                className="text-gray-400 mt-4 text-base font-normal"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -215,10 +215,10 @@ const Page = () => {
                 </motion.div>
                 <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
                   <div className="text-content px-4 lg:px-0 text-center lg:text-left">
-                    <h2 className="text-3xl font-bold mt-12 gradient-text mb-6">
-                      Application Developer
+                    <h2 className="text-2xl font-bold mt-12 gradient-text mb-6">
+                     Front End Developer
                     </h2>
-                    <p className="mt-2 mb-12 text-gray-600">
+                    <p className="mt-2 mb-12 text-gray-600 text-base font-normal">
                       A recent graduate with a Bachelor of Science in Computer
                       Science, specializing in creating UI and UX for mobile and
                       web applications. I focus on developing prototypes and
@@ -237,7 +237,7 @@ const Page = () => {
           {({ inView, ref }) => (
             <motion.div
               ref={ref}
-              id="Works"
+              id=""
               className="works w-full h-auto mx-auto mt-10 mb-28"
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
