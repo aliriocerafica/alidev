@@ -26,24 +26,12 @@ const Tech = () => {
           <motion.div
             ref={ref}
             id="skills"
-            className="mt-32"
+            className="mt-12"
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
             variants={animationVariants}
           >
-            <div className="text-center text-2xl gradient-text font-bold animate-pulse">
-              <h1>
-                Tech Skills{' '}
-                <Image
-                  src="/dev/Gear.svg"
-                  alt="Code Icon"
-                  width={32}
-                  height={32}
-                  className="ml-2 inline w-8 h-8 spin text-white "
-                />
-                <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 rounded-full "></div>
-              </h1>
-            </div>
+ 
           </motion.div>
         )}
       </InView>
