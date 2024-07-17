@@ -11,6 +11,7 @@ import Certificate from "./components/certificate";
 import Works from "./components/works";
 import "./css/home.css";
 import Tech from "./components/tech";
+import { ReactTyped } from "react-typed";
 
 const animationVariants = {
   hidden: { opacity: 0, x: -100 },
@@ -51,9 +52,9 @@ const Page = () => {
                 className="w-auto h-auto md:float-right animate-float"
               />
             </div>
-            <div className="md:order-1 text-white mt-20">
+            <div className="md:order-1 text-white mt-20 gradient-text">
               <motion.h2
-                className="text-5xl font-bold mb-2 gradient-text"
+                className="text-5xl font-bold mb-2 "
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -64,9 +65,28 @@ const Page = () => {
                 className="text-3xl font-bold mb-2"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 1, delay: 0.2 }}
               >
-                Front End Developer{" "}
+                <span style={{ display: "inline-block" }}>
+                  <h1
+                    className="inline-block text-gray-200 font-semibold"
+                    style={{ display: "inline ", margin: 0 }}
+                  >
+                    {" "}
+                    A{" "}
+                  </h1>
+                  <ReactTyped
+                    strings={[
+                      " Front End Developer",
+                      " UI and UX Designer",
+                      " Graphic Designer",
+                    ]}
+                    typeSpeed={50}
+                    backSpeed={50}
+                    loop
+                    className="text-white"
+                  />
+                </span>{" "}
                 <Image
                   src="/svg/code-solid.svg"
                   alt="Code Icon"
@@ -81,25 +101,23 @@ const Page = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                I am a Front End Developer and UI/UX Designer, a recent graduate
-                of Bachelor of Science in Computer Science Majoring in
-                Application Development from the University of Makati.
+                I am a recent graduate of Bachelor of Science in Computer
+                Science, specializing in Application Development, from The
+                University. I am eager to enhance my skills and knowledge.
               </motion.p>
               <motion.a
                 href="https://drive.google.com/file/d/1VbJASK-QYU0JqNvTGk5Fc73D2_AySj6T/view?usp=sharing"
-      
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                  <motion.p
-        className="font-normal border-2 mt-10 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg"
-        
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
+                <motion.p
+                  className="font-normal border-2 mt-10 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   Download CV
                 </motion.p>
               </motion.a>
@@ -198,16 +216,15 @@ const Page = () => {
                 <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
                   <div className="text-content px-4 lg:px-0 text-center lg:text-left">
                     <h2 className="text-3xl font-bold mt-12 gradient-text mb-6">
-                      Front End Developer
+                      Application Developer
                     </h2>
                     <p className="mt-2 mb-12 text-gray-600">
-                      An inspired <span className="font-bold">UI/UX</span>{" "}
-                      designer and Front-End Developer aiming to create and
-                      provide creative and user-friendly User Interfaces by
-                      using tools and utilities through online platforms.
-                      Passionate about staying up-to-date with the latest design
-                      trends and technologies, I strive to enhance the user
-                      experience through innovative and efficient solutions.
+                      A recent graduate with a Bachelor of Science in Computer
+                      Science, specializing in creating UI and UX for mobile and
+                      web applications. I focus on developing prototypes and
+                      mockups using Figma, and I have proficient skills in
+                      design. I also develop the front end of mobile and web
+                      applications using various programming languages
                     </p>
                   </div>
                 </div>
@@ -226,11 +243,11 @@ const Page = () => {
               animate={inView ? "visible" : "hidden"}
               variants={animationVariants}
             >
-              <Education/>
+              <Education />
             </motion.div>
           )}
         </InView>
-        
+
         <InView triggerOnce>
           {({ inView, ref }) => (
             <motion.div
