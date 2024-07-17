@@ -208,9 +208,9 @@ const Works = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
+                  {/* <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
                     <span>Git Repository</span>
-                  </button>
+                  </button> */}
                 </a>
               </div>
             </div>

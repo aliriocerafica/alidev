@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from 'next/image';
@@ -39,7 +40,7 @@ const Education = () => {
               <p className="mt-2 mb-12 gradient-text font-bold text-2xl">
                 2022 - 2024
               </p>
-              <Link href="/education">
+              <Link href="/eduation">
       <motion.p
         className="font-normal border-2 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg"
         whileHover={{ scale: 1.05 }}
