@@ -103,7 +103,7 @@ const Page = () => {
               >
                 I am a recent graduate of Bachelor of Science in Computer
                 Science, specializing in Application Development, from The
-                University. I am eager to enhance my skills and knowledge.
+                University.
               </motion.p>
               <motion.a
                 href="https://drive.google.com/file/d/1VbJASK-QYU0JqNvTGk5Fc73D2_AySj6T/view?usp=sharing"
