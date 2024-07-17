@@ -3,6 +3,8 @@ import React from "react";
 import "../css/home.css";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useAnimation } from "framer-motion";
+import { InView } from "react-intersection-observer";
 
 const Certificate = () => {
   return (
@@ -37,10 +39,14 @@ const Certificate = () => {
             </p>
 
             <Link href="/certificate">
-              <p className="font-normal border-2 text-white w-36 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
-                View Certificates
-              </p>
-            </Link>
+      <motion.p
+        className="font-normal border-2 text-white w-36 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        View Certificates
+      </motion.p>
+    </Link>
           </div>
         </div>
       </div>

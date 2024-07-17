@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import '../css/home.css';
-
+import { motion } from "framer-motion";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -92,9 +92,14 @@ const Contact = () => {
               <p className="text-green-500 mb-4 text-center">Email sent successfully!</p>
             )}
             <div className="text-center">
-              <button type="submit" className="border-2 border-[#7484dd] p-2 text-sm rounded-lg mt-2 hover:bg-[#4855a3] hover:text-white hover:border-white w-32">
-                Send
-              </button>
+            <motion.button
+      type="submit"
+      className="border-2 border-[#7484dd] p-2 text-sm rounded-lg mt-2 hover:bg-[#4855a3] hover:text-white hover:border-white w-32"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Send
+    </motion.button>
             </div>
           </form>
         </div>

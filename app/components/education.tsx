@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from 'next/image';
+import { motion, useAnimation } from "framer-motion";
+import { InView } from "react-intersection-observer";
 
 const Education = () => {
   return (
@@ -12,6 +14,10 @@ const Education = () => {
       <div className="contentAbout w-auto">
         <div className="content w-full lg:w-3/5 h-auto mx-auto flex flex-col lg:flex-row p-8">
           <div className="w-full lg:w-1/2 flex justify-center items-center">
+          <motion.div
+                  className="w-full lg:w-5/5 flex justify-center lg:justify-start items-center "
+                  whileHover={{ scale: 1.1 }} // Zoom effect on hover
+                >
             <Image
               src="/umakEdu.png" 
               alt="University of Makati"
@@ -19,6 +25,7 @@ const Education = () => {
               height={500}
               className="w-full lg:w-[500px] h-auto"
             />
+               </motion.div>
           </div>
           <div className="w-full lg:w-1/2 flex justify-center">
             <div className="text-content px-4 lg:px-0">
@@ -32,11 +39,15 @@ const Education = () => {
               <p className="mt-2 mb-12 gradient-text font-bold text-2xl">
                 2022 - 2024
               </p>
-              <Link href="/eduation">
-                <p className="font-normal border-2 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg">
-                  View Education
-                </p>
-              </Link>
+              <Link href="/education">
+      <motion.p
+        className="font-normal border-2 text-white w-32 text-center border-[#7484dd] hover:bg-[#4855a3] hover:text-white hover:border-white p-2 text-sm rounded-lg"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        View Education
+      </motion.p>
+    </Link>
             </div>
           </div>
         </div>
