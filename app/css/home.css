@@ -1,96 +1,96 @@
 .gradient-text {
-    background-image: linear-gradient(to right, #7484dd, #e0e3eb);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  background-image: linear-gradient(to right, #7484dd, #e0e3eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-  .gradient-textH1 {
-    background-image: linear-gradient(to right, #3e4c97, #e0e3eb);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.gradient-textH1 {
+  background-image: linear-gradient(to right, #3e4c97, #e0e3eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
-  
-  .spin {
-    animation: spin 2s linear infinite;
-  }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
 
 @keyframes slideInName {
-    0% {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
   }
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: auto;
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .animate-typing {
-    display: inline-block;
-    overflow: hidden; 
-    animation: typing 2s steps(30, end); 
+}
+@keyframes typing {
+  from {
+    width: 0;
   }
-  /* CSS Code */
-  .swiper-wrapper {
-    width: 100%;
-    height: max-content !important;
-    padding-bottom: 64px !important;
-    -webkit-transition-timing-function: linear !important;
-    transition-timing-function: linear !important;
-    position: relative;
-    }
-    .swiper-pagination-bullet {
-    background: #4f46e5;
-    }
+  to {
+    width: auto;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden; 
+  animation: typing 2s steps(30, end); 
+}
+/* CSS Code */
+.swiper-wrapper {
+  width: 100%;
+  height: max-content !important;
+  padding-bottom: 64px !important;
+  -webkit-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+  position: relative;
+  }
+  .swiper-pagination-bullet {
+  background: #4f46e5;
+  }
 
 
 
 @keyframes slideInFromLeft {
-  from {
-    transform: translateX(-40%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+from {
+  transform: translateX(-40%);
+  opacity: 0;
+}
+to {
+  transform: translateX(0);
+  opacity: 1;
+}
 }
 
 
 .animate-slide-in {
-  animation: slideInFromLeft 1s ease-in-out;
+animation: slideInFromLeft 1s ease-in-out;
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-in-out;
+animation: fadeIn 1s ease-in-out;
 }
 @keyframes fade {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+0%, 100% {
+  opacity: 1;
+}
+50% {
+  opacity: 0.5;
+}
 }
 
 .fade-animation {
-  animation: fade 2s infinite;
+animation: fade 2s infinite;
 }
