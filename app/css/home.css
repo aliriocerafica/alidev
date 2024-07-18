@@ -94,3 +94,8 @@ animation: fadeIn 1s ease-in-out;
 .fade-animation {
 animation: fade 2s infinite;
 }
+/* .background {
+  background: linear-gradient(to bottom, rgba(116, 132, 221, 0.2), rgba(192, 198, 246, 0.2));
+ 
+
+} */

@@ -9,7 +9,7 @@ import { InView } from "react-intersection-observer";
 const Certificate = () => {
   return (
     <div className="contentAbout w-auto mb-24 ">
-      <div className="content w-full lg:w-3/5  gap-10 h-auto mx-auto flex flex-col lg:flex-row-reverse p-8">
+      <div className="content w-full lg:w-3/5  gap-10 h-auto mx-auto flex flex-col lg:flex-row-reverse ">
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-start items-center  border-2 p-4 border-[#7484dd] rounded-md">
           <Image
             src="/cert1.jpg"
