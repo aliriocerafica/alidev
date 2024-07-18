@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
@@ -15,7 +15,6 @@ import { ReactTyped } from "react-typed";
 
 const Page = () => {
   useEffect(() => {
- 
     window.scrollTo(0, 0);
     document.body.classList.add("fade-in");
 
@@ -39,7 +38,7 @@ const Page = () => {
     };
   }, []);
 
-  const handleContextMenu = (e: { preventDefault: () => void; }) => {
+  const handleContextMenu = (e: { preventDefault: () => void }) => {
     e.preventDefault();
   };
 
@@ -194,7 +193,7 @@ const Page = () => {
             <motion.div
               ref={ref}
               id="about"
-              className="about mx-auto w-3/5 p-2 text-2xl gradient-text text-center font-bold mt-20 animated"
+              className="about mx-auto w-3/5 p-2 text-2xl gradient-text text-center font-bold mt-20 animated mb-4"
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
               variants={{
