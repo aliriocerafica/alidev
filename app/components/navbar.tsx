@@ -136,7 +136,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.1 }}
               >
                 <div className="p-2">
                   <div className="flex flex-col space-y-4">
@@ -165,8 +165,8 @@ const Navbar = () => {
                       Skills
                     </Link>
                     <Link
-                      href="#tech"
-                      onClick={(e) => handleSmoothScroll(e, "tech")}
+                      href="#tech1"
+                      onClick={(e) => handleSmoothScroll(e, "tech1")}
                       className="block text-lg hover:font-bold"
                     >
                       Certificate
@@ -215,8 +215,8 @@ const Navbar = () => {
               Skills
             </Link>
             <Link
-              href="#tech"
-              onClick={(e) => handleSmoothScroll(e, "tech")}
+              href="#tech1"
+              onClick={(e) => handleSmoothScroll(e, "tech1")}
               className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
                 isScrolled ? "text-black" : "text-white"
               }`}
