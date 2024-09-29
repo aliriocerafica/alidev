@@ -163,6 +163,14 @@ const Navbar = () => {
                       className="block text-lg hover:font-bold"
                     >
                       Skills
+                      </Link>
+                    <Link
+                      href="/bitlock"
+                   
+                      className="block text-lg hover:font-bold"
+                    >
+                      Infosec
+                 
                     </Link>
                     <Link
                       href="#tech1"
@@ -213,6 +221,15 @@ const Navbar = () => {
               }`}
             >
               Skills
+            </Link>
+            <Link
+              href="/bitlock"
+           
+              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              Infosec
             </Link>
             <Link
               href="#tech1"

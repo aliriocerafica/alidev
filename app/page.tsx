@@ -52,8 +52,10 @@ const Page = () => {
 
   return (
     <body className="bg-[#0c1c29] min-h-screen fade-in">
+      <div>  <Navbar /></div>
+     
       <div>
-        <Navbar />
+       
         <div className="profile mx-auto w-3/5 mt-36">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="md:order-2">
@@ -400,7 +402,8 @@ const Page = () => {
         </InView>
         <Footer />
       </div>
-    </body>
+     </body>
+   
   );
 };
 
