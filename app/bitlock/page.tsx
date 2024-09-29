@@ -111,10 +111,10 @@ export default function TPMandPinGenerator() {
   return (
     <div>
       <Sidebar />
-      <div className="flex justify-center items-center bg-gray-black bg-opacity-10 mt-16">
-        <div className="bg-white bg-opacity-80 backdrop-blur-md shadow-lg rounded-lg p-8 max-w-2xl w-full">
+      <div className="flex justify-center items-center  bg-opacity-10 mt-16 p-10 ">
+        <div className="bg-white bg-opacity-80 backdrop-blur-md shadow-lg rounded-lg p-8 max-w-2xl w-full border-2  shadow-md shadow-white shadow-opacity-60 border-white border-opacity-80">
           <h1 className="text-3xl font-bold text-center mb-6 text-black">
-            BitLocker TPM and PIN Generator
+            ITArdent BitLocker TPM and PIN Generator
           </h1>
           <div className="mb-6">
             <label className="block text-sm font-medium mb-1 text-black">
