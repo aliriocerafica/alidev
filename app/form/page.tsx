@@ -2,15 +2,16 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import Sidebar from "../components/nav";
-import React from "react";
 
 export default function Page() {
-  const [deviceType, setDeviceType] = useState("");
-  const [deviceNumber, setDeviceNumber] = useState("");
-  const [key, setKey] = useState("");
-  const [isKeyGenerated, setIsKeyGenerated] = useState(false);
+  const [deviceType, setDeviceType] = useState<string>("");
+  const [deviceNumber, setDeviceNumber] = useState<string>("");
+  const [isKeyGenerated, setIsKeyGenerated] = useState<boolean>(false);
+  const [isBatch, setIsBatch] = useState<boolean>(false);
+  const [deviceIds, setDeviceIds] = useState<string>("");
+  const [keys, setKeys] = useState<string[]>([]);
 
-  const generatedKeys = new Set();
+  const generatedKeys = new Set<string>();
 
   const generateUniqueKey = () => {
     let uniqueKey = "";
@@ -29,96 +30,78 @@ export default function Page() {
     return uniqueKey;
   };
 
-  const generateKey = () => {
-    const deviceID = parseInt(deviceNumber, 10);
-    if (!isNaN(deviceID) && deviceID > 0 && deviceID <= 1000) {
-      let newKey;
-      do {
-        newKey = generateUniqueKey();
-      } while (
-        generatedKeys.has(`${deviceType}-${deviceID} - "${newKey}"`) &&
-        generatedKeys.size < 1000
-      );
+  const generateKeys = () => {
+    const ids = isBatch
+      ? deviceIds.split(",").map((id) => id.trim())
+      : [deviceNumber];
+    const newKeys: string[] = []; // Explicitly define type here
 
-      if (generatedKeys.size >= 1000) {
-        alert("Maximum unique keys generated for the device type.");
-        return;
-      }
+    ids.forEach((id) => {
+      const deviceID = parseInt(id, 10);
+      if (!isNaN(deviceID) && deviceID > 0 && deviceID <= 1000) {
+        let newKey;
+        do {
+          newKey = generateUniqueKey();
+        } while (
+          generatedKeys.has(
+            `${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
+          )
+        );
 
-      generatedKeys.add(`${deviceType}-${deviceID} - "${newKey}"`);
-      setKey(`${deviceType}-${deviceID} - "${newKey}"`);
-      setIsKeyGenerated(true);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Invalid Device ID",
-        text: "Please enter a valid device ID number (1-1000).",
-      });
-    }
-  };
-
-  const resetForm = () => {
-    setDeviceType("");
-    setDeviceNumber("");
-    setKey("");
-    setIsKeyGenerated(false);
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard
-      .writeText(key)
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Copied!",
-          text: "Key copied to clipboard!",
-        });
-      })
-      .catch((err) => {
-        console.error("Failed to copy: ", err);
+        newKeys.push(
+          `APABS-${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
+        );
+        generatedKeys.add(
+          `APABS-${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
+        );
+      } else {
         Swal.fire({
           icon: "error",
-          title: "Oops...",
-          text: "Failed to copy key!",
+          title: "Invalid Device ID",
+          text: `Device ID "${id}" is invalid. Please enter valid IDs (1-1000).`,
         });
-      });
+      }
+    });
+
+    setKeys(newKeys);
+    setIsKeyGenerated(true);
   };
 
-  const downloadKeyAsText = () => {
-    if (key) {
-      const blob = new Blob([key], { type: "text/plain" });
+  const downloadKeys = (format: "txt" | "excel") => {
+    if (format === "txt") {
+      const blob = new Blob([keys.join("\n")], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `BitLocker_TPM_Key_${deviceNumber}.txt`;
+      a.download = `BitLocker_TPM_Keys_${Date.now()}.txt`;
+
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "No Key to Download",
-        text: "Please generate a key before downloading.",
-      });
+    } else if (format === "excel") {
+      const csvContent = "data:text/csv;charset=utf-8," + keys.join("\n");
+      const encodedUri = encodeURI(csvContent);
+      const a = document.createElement("a");
+      a.href = encodedUri;
+      a.download = `BitLocker_TPM_Keys_${Date.now()}.csv`; // Change the file extension to .csv
+
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
   };
 
-  const handleButtonClick = () => {
-    if (isKeyGenerated) {
-      resetForm();
-    } else {
-      generateKey();
-    }
-  };
-
-  // New onDelete function to reset the key
-  const onDelete = () => {
-    resetForm();
+  const resetKeys = () => {
+    setKeys([]);
+    setIsKeyGenerated(false);
+    setDeviceType("");
+    setDeviceNumber("");
+    setDeviceIds("");
     Swal.fire({
-      icon: "info",
-      title: "Key Deleted",
-      text: "The generated key has been deleted.",
+      icon: "success",
+      title: "Keys Deleted",
+      text: "All generated keys have been deleted.",
     });
   };
 
@@ -128,15 +111,13 @@ export default function Page() {
       <div className="flex-1 flex justify-center items-center p-4 lg:p-10">
         <div className="form bg-white p-4 rounded-2xl bg-opacity-20 shadow-sky-100 shadow-opacity-20 shadow-lg border-1 border-gray-400">
           <div className="backdrop-blur-md bg-[#1e2330] bg-opacity-80 shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
-            <h1 className="text-3xl font-normal text-center mb-6 text-white">
-              BITLOCKER KEY GENERATOR APABS
-              <hr className="border-t-1 border-white w-full mt-2" />
+            <h1 className="text-3xl font-normal text-white mb-6">
+              BitLocker TPM Key Generator
             </h1>
-            <div className="border-t- border-gray-200 rounded-full w-full"></div>
 
             <div className="mb-6">
               <label className="block text-sm font-normal mb-1 text-white">
-                Select Device Type:
+                Device Type:
               </label>
               <select
                 className="text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
@@ -144,94 +125,154 @@ export default function Page() {
                 value={deviceType}
                 aria-label="Device Type"
               >
-                <option value="">Select...</option>
-                <option value="APABS-LAPTOP">Laptop</option>
-                <option value="APABS-DESKTOP">Desktop</option>
+                <option value="" disabled>
+                  Select Device Type
+                </option>
+                <option value="Laptop">Laptop</option>
+                <option value="Desktop">Desktop</option>
               </select>
             </div>
+
             <div className="mb-6">
               <label className="block text-sm font-normal mb-1 text-white">
-                Device ID Number:
+                Generate Single Key or Batch:
+              </label>
+              <select
+                className="text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                onChange={(e) => setIsBatch(e.target.value === "batch")}
+                aria-label="Key Generation Type"
+              >
+                <option value="single">Single Key</option>
+                <option value="batch">Batch Key Generation</option>
+              </select>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-normal mb-1 text-white">
+                {isBatch
+                  ? "Enter Device IDs (comma-separated):"
+                  : "Enter Device ID:"}
               </label>
               <input
-                type="number"
-                placeholder="Enter Device ID Number"
+                type="text"
+                placeholder={
+                  isBatch
+                    ? "Enter Device IDs (e.g., 1, 2, 3)"
+                    : "Enter Device ID (e.g., 1)"
+                }
                 className="text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
-                onChange={(e) => setDeviceNumber(e.target.value)}
-                value={deviceNumber}
-                aria-label="Device ID Number"
+                onChange={(e) => {
+                  if (isBatch) {
+                    setDeviceIds(e.target.value);
+                  } else {
+                    setDeviceNumber(e.target.value);
+                  }
+                }}
+                value={isBatch ? deviceIds : deviceNumber}
+                aria-label={isBatch ? "Device IDs" : "Device ID"}
               />
             </div>
+
             <button
-              onClick={handleButtonClick}
+              onClick={generateKeys}
               className="bg-black text-white p-3 rounded-md w-full hover:bg-gray-800 transition duration-200"
             >
               {isKeyGenerated ? "Generate New Key" : "Generate Key"}
             </button>
-            <div className="mt-6">
-              {key && (
-                <>
-                  <h2 className="text-xl font-medium text-white mb-2">
-                    Generated Key:
-                  </h2>
-                  <div className="border text-blue-400 font-semibold border-white rounded-md p-2 mb-1 flex justify-between items-center">
-                    <div className="flex items-center">
-                      <span>{key}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      {" "}
-                      {/* Updated spacing here */}
-                      <button
-                        onClick={onDelete}
-                        className="flex items-center justify-center text-black p-1 rounded-md  shadow-md hover:bg-gray-white transition duration-200"
-                        style={{ background: 'linear-gradient(to right, #3a435d, #f0f0f0)' }} 
-                        aria-label="Delete Item"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="white"
-                          className="size-5 shadow-md"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={copyToClipboard}
-                        className="flex items-center justify-center text-black p-1 rounded-md shadow-md hover:bg-gray-300 transition duration-200"
-                        style={{ background: 'linear-gradient(to right, #3a435d, #f0f0f0)' }} 
-                        aria-label="Copy Key to Clipboard"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="white"
-                          className="size-5"
-                        >
-                          <path d="M7 3.5A1.5 1.5 0 0 1 8.5 2h3.879a1.5 1.5 0 0 1 1.06.44l3.122 3.12A1.5 1.5 0 0 1 17 6.622V12.5a1.5 1.5 0 0 1-1.5 1.5h-1v-3.379a3 3 0 0 0-.879-2.121L10.5 5.379A3 3 0 0 0 8.379 4.5H7v-1Z" />
-                          <path d="M4.5 6A1.5 1.5 0 0 0 3 7.5v9A1.5 1.5 0 0 0 4.5 18h7a1.5 1.5 0 0 0 1.5-1.5v-5.879a1.5 1.5 0 0 0-.44-1.06L9.44 6.439A1.5 1.5 0 0 0 8.378 6H4.5Z" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <button
-  onClick={downloadKeyAsText}
-  className="text-white flex items-center space-x-2 hover:text-green-200 mt-4 transition duration-200"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
-    <path fillRule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
-  </svg>
-  <span>Download Key</span>
-</button>
 
-                 
-                </>
-              )}
-            </div>
+            {isKeyGenerated && (
+              <div className="mt-6">
+                <h2 className="text-xl font-medium text-white mb-2">
+                  Generated Keys:
+                </h2>
+                {keys.map((k, index) => (
+                 <div
+                 key={index}
+                 className="border text-blue-400 font-semibold border-white rounded-md p-2 mb-1 flex justify-between items-center"
+               >
+                 <span>{k}</span>
+                 <button
+                   onClick={() => {
+                     navigator.clipboard.writeText(k).then(() => {
+                       // Optionally, you can provide user feedback
+                       alert("Key copied to clipboard!");
+                     }).catch(err => {
+                       console.error("Failed to copy: ", err);
+                     });
+                   }}
+                   className="bg-gray-500 shadow-md text-white p-2 rounded-md flex items-center hover:bg-green-600"
+                 >
+                   <svg
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 20 20"
+                     fill="currentColor"
+                     className="w-5 h-5"
+                   >
+                     <path d="M7 3.5A1.5 1.5 0 0 1 8.5 2h3.879a1.5 1.5 0 0 1 1.06.44l3.122 3.12A1.5 1.5 0 0 1 17 6.622V12.5a1.5 1.5 0 0 1-1.5 1.5h-1v-3.379a3 3 0 0 0-.879-2.121L10.5 5.379A3 3 0 0 0 8.379 4.5H7v-1Z" />
+                     <path d="M4.5 6A1.5 1.5 0 0 0 3 7.5v9A1.5 1.5 0 0 0 4.5 18h7a1.5 1.5 0 0 0 1.5-1.5v-5.879a1.5 1.5 0 0 0-.44-1.06L9.44 6.439A1.5 1.5 0 0 0 8.378 6H4.5Z" />
+                   </svg>
+                 </button>
+               </div>
+               
+                ))}
+                <div className="flex space-x-4 mt-4">
+                  <button
+                    onClick={() => downloadKeys("txt")}
+                    className="bg-green-500 text-white p-2 rounded-md flex items-center hover:bg-green-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="h-5 w-5 mr-2"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Zm2.25 8.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Download as TXT
+                  </button>
+                  <button
+                    onClick={() => downloadKeys("excel")}
+                    className="bg-blue-500 text-white p-2 rounded-md flex items-center hover:bg-blue-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="h-5 w-5 mr-2"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2 4.75C2 3.784 2.784 3 3.75 3h4.836c.464 0 .909.184 1.237.513l1.414 1.414a.25.25 0 0 0 .177.073h4.836c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 16.25 17H3.75A1.75 1.75 0 0 1 2 15.25V4.75Zm8.75 4a.75.75 0 0 0-1.5 0v2.546l-.943-1.048a.75.75 0 1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.114 0l2.25-2.5a.75.75 0 1 0-1.114-1.004l-.943 1.048V8.75Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Download as Excel
+                  </button>
+                  <button
+                    onClick={resetKeys}
+                    className="bg-red-500 text-white p-2 rounded-md flex items-center hover:bg-red-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="h-5 w-5 mr-2"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Delete Keys
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
