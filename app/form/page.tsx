@@ -183,14 +183,15 @@ export default function Page() {
                       {/* Updated spacing here */}
                       <button
                         onClick={onDelete}
-                        className="flex items-center justify-center bg-gray-200 text-black p-1 rounded-md hover:bg-gray-300 transition duration-200"
+                        className="flex items-center justify-center text-black p-1 rounded-md  shadow-md hover:bg-gray-white transition duration-200"
+                        style={{ background: 'linear-gradient(to right, #3a435d, #f0f0f0)' }} 
                         aria-label="Delete Item"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="size-5"
+                          fill="white"
+                          className="size-5 shadow-md"
                         >
                           <path
                             fillRule="evenodd"
@@ -201,13 +202,14 @@ export default function Page() {
                       </button>
                       <button
                         onClick={copyToClipboard}
-                        className="flex items-center justify-center bg-gray-200 text-black p-1 rounded-md hover:bg-gray-300 transition duration-200"
+                        className="flex items-center justify-center text-black p-1 rounded-md shadow-md hover:bg-gray-300 transition duration-200"
+                        style={{ background: 'linear-gradient(to right, #3a435d, #f0f0f0)' }} 
                         aria-label="Copy Key to Clipboard"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
-                          fill="currentColor"
+                          fill="white"
                           className="size-5"
                         >
                           <path d="M7 3.5A1.5 1.5 0 0 1 8.5 2h3.879a1.5 1.5 0 0 1 1.06.44l3.122 3.12A1.5 1.5 0 0 1 17 6.622V12.5a1.5 1.5 0 0 1-1.5 1.5h-1v-3.379a3 3 0 0 0-.879-2.121L10.5 5.379A3 3 0 0 0 8.379 4.5H7v-1Z" />
