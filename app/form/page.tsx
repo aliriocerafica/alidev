@@ -109,8 +109,8 @@ export default function Page() {
     <div className="flex flex-col lg:flex-row">
       <Sidebar />
       <div className="flex-1 flex justify-center items-center p-4 sm:p-4 md:p-8 lg:p-10">
-        <div className="form bg-white p-4 rounded-2xl bg-opacity-20 shadow-sky-100 shadow-opacity-20 shadow-lg border-1 border-gray-400">
-          <div className="backdrop-blur-md bg-[#1e2330] bg-opacity-80 shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
+        <div className="form bg-white shadow-inner p-4 rounded-2xl bg-opacity-20 shadow-sky-100 shadow-opacity-20 shadow-lg border-1 border-gray-400">
+          <div className="backdrop-blur-md bg-[#1e2330] bg-opacity-80 shadow-innerr shadow-white shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
             <h1 className="text-3xl font-normal text-white mb-6">
               BitLocker TPM Key Generator APABS
             </h1>
@@ -120,7 +120,7 @@ export default function Page() {
                 Device Type:
               </label>
               <select
-                className="text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="text-white bg-gray-500  rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
                 onChange={(e) => setDeviceType(e.target.value)}
                 value={deviceType}
                 aria-label="Device Type"

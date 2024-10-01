@@ -60,7 +60,7 @@ const Page = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="md:order-2">
               <Image
-                src="/p3.png"
+                src="/grad2.png"
                 alt="Image"
                 width={1400}
                 height={1400}
