@@ -34,7 +34,7 @@ export default function Page() {
     const ids = isBatch
       ? deviceIds.split(",").map((id) => id.trim())
       : [deviceNumber];
-    const newKeys: string[] = []; // Explicitly define type here
+    const newKeys: string[] = [];
 
     ids.forEach((id) => {
       const deviceID = parseInt(id, 10);
@@ -43,16 +43,14 @@ export default function Page() {
         do {
           newKey = generateUniqueKey();
         } while (
-          generatedKeys.has(
-            `${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
-          )
+          generatedKeys.has(`${deviceType.toUpperCase()}-${deviceID}-${newKey}`)
         );
 
         newKeys.push(
-          `APABS-${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
+          `APABS-${deviceType.toUpperCase()}-${deviceID}-${newKey}`
         );
         generatedKeys.add(
-          `APABS-${deviceType.toUpperCase()}-${deviceID} - '${newKey}'`
+          `APABS-${deviceType.toUpperCase()}-${deviceID}-${newKey}`
         );
       } else {
         Swal.fire({
@@ -84,7 +82,7 @@ export default function Page() {
       const encodedUri = encodeURI(csvContent);
       const a = document.createElement("a");
       a.href = encodedUri;
-      a.download = `BitLocker_TPM_Keys_${Date.now()}.csv`; // Change the file extension to .csv
+      a.download = `BitLocker_TPM_Keys_${Date.now()}.csv`;
 
       document.body.appendChild(a);
       a.click();
@@ -106,11 +104,11 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row ">
       <Sidebar />
       <div className="flex-1 flex justify-center items-center p-4 sm:p-4 md:p-8 lg:p-10">
-        <div className="form bg-white shadow-inner p-4 rounded-2xl bg-opacity-20 shadow-sky-100 shadow-opacity-20 shadow-lg border-1 border-gray-400">
-          <div className="backdrop-blur-md bg-[#1e2330] bg-opacity-80 shadow-innerr shadow-white shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
+        <div className="form bg-white shadow-inner p-4 rounded-2xl bg-opacity-20 shadow-opacity-20 shadow-lg border-1 border-gray-400">
+          <div className="backdrop-blur-md bg-black bg-opacity-100 shadow-innerr shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
             <h1 className="text-3xl font-normal text-white mb-6">
               BitLocker TPM Key Generator APABS
             </h1>
@@ -120,7 +118,7 @@ export default function Page() {
                 Device Type:
               </label>
               <select
-                className="text-white bg-gray-500  rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
                 onChange={(e) => setDeviceType(e.target.value)}
                 value={deviceType}
                 aria-label="Device Type"
@@ -175,7 +173,7 @@ export default function Page() {
 
             <button
               onClick={generateKeys}
-              className="bg-black text-white p-3 rounded-md w-full hover:bg-gray-800 transition duration-200"
+              className="bg-[#5a4bad] shadow-md shadow-slate-100 text-white p-3 rounded-md w-full hover:bg-gray-800 transition duration-200"
             >
               {isKeyGenerated ? "Generate New Key" : "Generate Key"}
             </button>
@@ -186,42 +184,45 @@ export default function Page() {
                   Generated Keys:
                 </h2>
                 {keys.map((k, index) => (
-  <div
-    key={index}
-    className="border text-blue-400 font-semibold border-white rounded-md p-2 mb-1 flex justify-between items-center"
-  >
-    <span>{k}</span>
-    <button
-      onClick={() => {
-        navigator.clipboard.writeText(k).then(() => {
-          Swal.fire({
-            icon: "success",
-            title: "Copied!",
-            text: "Key copied to clipboard!",
-            confirmButtonText: "OK",
-          });
-        }).catch(err => {
-          console.error("Failed to copy: ", err);
-        });
-      }}
-      className="bg-gray-500 shadow-md text-white p-2 rounded-md flex items-center hover:bg-green-600"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="w-5 h-5"
-      >
-        <path d="M7 3.5A1.5 1.5 0 0 1 8.5 2h3.879a1.5 1.5 0 0 1 1.06.44l3.122 3.12A1.5 1.5 0 0 1 17 6.622V12.5a1.5 1.5 0 0 1-1.5 1.5h-1v-3.379a3 3 0 0 0-.879-2.121L10.5 5.379A3 3 0 0 0 8.379 4.5H7v-1Z" />
-        <path d="M4.5 6A1.5 1.5 0 0 0 3 7.5v9A1.5 1.5 0 0 0 4.5 18h7a1.5 1.5 0 0 0 1.5-1.5v-5.879a1.5 1.5 0 0 0-.44-1.06L9.44 6.439A1.5 1.5 0 0 0 8.378 6H4.5Z" />
-      </svg>
-    </button>
-  </div>
-))}
+                  <div
+                    key={index}
+                    className="border text-blue-400 font-semibold border-white rounded-md p-2 mb-1 flex justify-between items-center"
+                  >
+                    <span>{k}</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard
+                          .writeText(k)
+                          .then(() => {
+                            Swal.fire({
+                              icon: "success",
+                              title: "Copied!",
+                              text: "Key copied to clipboard!",
+                              confirmButtonText: "OK",
+                            });
+                          })
+                          .catch((err) => {
+                            console.error("Failed to copy: ", err);
+                          });
+                      }}
+                      className="bg-gray-500 shadow-md text-white p-2 rounded-md flex items-center hover:bg-green-600"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path d="M7 3.5A1.5 1.5 0 0 1 8.5 2h3.879a1.5 1.5 0 0 1 1.06.44l3.122 3.12A1.5 1.5 0 0 1 17 6.622V12.5a1.5 1.5 0 0 1-1.5 1.5h-1v-3.379a3 3 0 0 0-.879-2.121L10.5 5.379A3 3 0 0 0 8.379 4.5H7v-1Z" />
+                        <path d="M4.5 6A1.5 1.5 0 0 0 3 7.5v9A1.5 1.5 0 0 0 4.5 18h7a1.5 1.5 0 0 0 1.5-1.5v-5.879a1.5 1.5 0 0 0-.44-1.06L9.44 6.439A1.5 1.5 0 0 0 8.378 6H4.5Z" />
+                      </svg>
+                    </button>
+                  </div>
+                ))}
                 <div className="flex space-x-4 mt-4">
                   <button
                     onClick={() => downloadKeys("txt")}
-                    className="bg-green-500 text-white p-2 rounded-md flex items-center hover:bg-green-600"
+                    className="bg-green-500 text-white p-2 shadow-inner shadow-green-200 rounded-md flex items-center hover:bg-green-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +236,7 @@ export default function Page() {
                         clipRule="evenodd"
                       />
                     </svg>
-                 TXT
+                    TXT
                   </button>
                   <button
                     onClick={() => downloadKeys("excel")}
