@@ -5,9 +5,9 @@ export const PERSONAL_INFO = {
   name: "Ali Cerafica",
   title: "Front End Developer",
   roles: [
-    " Front End Developer",
-    " UI and UX Designer", 
-    " Graphic Designer"
+    "Front End Developer",
+    "UI and UX Designer", 
+    "Graphic Designer"
   ] as string[],
   description: "I am a recent graduate of Bachelor of Science in Computer Science, specializing in Application Development, from The University.",
   resumeUrl: "https://www.canva.com/design/DAF7RgdPHrE/PGvijEWTdSWs60pCbt-IKQ/edit?utm_content=DAF7RgdPHrE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
@@ -203,7 +203,8 @@ export const PROJECTS: Project[] = [
     image: "/project5.png",
     figmaUrl: "https://www.figma.com/design/O1Utop0WQWW7AKnoqKxAyL/Coffee-Shop?node-id=0-1&t=6y5oP29Ybk4xVHtK-1",
     technologies: ["Figma", "UI/UX Design", "E-commerce Design"]
-  }
+  },
+
 ];
 
 export const TECH_SKILLS: TechSkill[] = [
@@ -276,7 +277,8 @@ export const TECH_SKILLS: TechSkill[] = [
     icon: "/svg/tailwind-css.svg",
     category: "frontend",
     proficiency: "advanced"
-  }
+  },
+
 ];
 
 export const FOOTER_SOCIAL_LINKS: SocialLink[] = [
@@ -294,6 +296,69 @@ export const FOOTER_SOCIAL_LINKS: SocialLink[] = [
     href: "https://twitter.com",
     label: "Twitter", 
     icon: "/footer/twitter.svg"
+  }
+];
+
+export const ADDITIONAL_SKILLS = [
+  {
+    category: "IT Administration & Support Skills",
+    skills: [
+      {
+        title: "Microsoft Administration",
+        details: [
+          "Office 365/Microsoft 365 setup and management",
+          "User account creation and permissions",
+          "Application integration (Outlook, Teams, SharePoint)",
+          "Cloud service configuration"
+        ]
+      },
+      {
+        title: "Network Installation & Configuration",
+        details: [
+          "Dedicated internet setup and configuration",
+          "Access point installation and management",
+          "Network troubleshooting and optimization",
+          "WiFi infrastructure deployment"
+        ]
+      },
+      {
+        title: "WiFi Setup & Troubleshooting",
+        details: [
+          "Wireless network configuration",
+          "Signal optimization and range extension",
+          "Security protocol implementation",
+          "Connection issue resolution"
+        ]
+      },
+      {
+        title: "Hardware & Software Troubleshooting",
+        details: [
+          "Computer diagnostic and repair",
+          "Software conflict resolution",
+          "Performance optimization",
+          "Driver installation and updates"
+        ]
+      },
+             {
+         title: "System Maintenance",
+         details: [
+           "Windows OS installation and upgrades",
+           "System reformatting and clean installations",
+           "Software updates and patch management",
+           "System performance optimization",
+           "Data backup and recovery"
+         ]
+       },
+      {
+        title: "Canva Design",
+        details: [
+          "Graphic design and visual content creation",
+          "Video animations and motion graphics",
+          "Marketing materials and presentations",
+          "Brand asset development"
+        ]
+      }
+    ]
   }
 ];
 

@@ -9,6 +9,7 @@ import Contact from "./components/contact";
 import Certificate from "./components/certificate";
 import Works from "./components/works";
 import Tech from "./components/tech";
+import AdditionalSkills from "./components/additionalSkills";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "./data/constants";
 import "./css/home.css";
 import Image from "next/image";
@@ -383,6 +384,24 @@ const Page = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <Tech />
+              </motion.div>
+            )}
+          </InView>
+        </div>
+      </section>
+
+      {/* Additional Skills Section */}
+      <section id="additional-skills" className="section-padding">
+        <div className="container-modern">
+          <InView triggerOnce>
+            {({ inView, ref }) => (
+              <motion.div
+                ref={ref}
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8 }}
+              >
+                <AdditionalSkills />
               </motion.div>
             )}
           </InView>

@@ -141,7 +141,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2 rounded-xl bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50"
+              className="lg:hidden p-2 rounded-xl bg-neutral-900/90 backdrop-blur-xl border border-neutral-700/50"
               onClick={toggleMobileMenu}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -190,7 +190,7 @@ const Navbar = () => {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="card-glass p-6 space-y-4">
+              <div className="bg-neutral-900/95 backdrop-blur-xl border border-neutral-700/50 rounded-2xl p-6 space-y-4 shadow-2xl">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -201,7 +201,7 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       onClick={item.id ? (e) => handleSmoothScroll(e, item.id) : undefined}
-                      className="block text-white font-medium py-3 px-4 rounded-xl hover:bg-white/10 transition-colors duration-200"
+                      className="block text-white font-medium py-3 px-4 rounded-xl hover:bg-neutral-800/80 transition-colors duration-200"
                     >
                       {item.label}
                     </Link>

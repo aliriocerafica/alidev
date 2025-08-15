@@ -104,24 +104,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
   };
 
   return (
-    <motion.article
-      className="card-modern flex flex-col justify-between p-6 text-center group card-hover border-glow"
-      variants={cardVariants}
-      whileHover="hover"
-      onMouseEnter={handleMouseEnter}
-      transition={{ duration: 0.3 }}
-    >
+         <motion.article
+       className="card-modern flex flex-col justify-between text-center group"
+       variants={cardVariants}
+       whileHover="hover"
+       onMouseEnter={handleMouseEnter}
+       transition={{ duration: 0.4, ease: "easeOut" }}
+     >
       {/* Project Image */}
       <div className="flex justify-center items-center h-64 mb-6">
-        <div className="relative overflow-hidden rounded-xl">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={400}
-            height={300}
-            className="w-auto h-full object-contain group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
+        <div className="relative overflow-hidden rounded-xl w-full h-full">
+          {/* Check if project should show view image card */}
+                     {['alma-villa', 'ardi-ai-assistant', 'b-dazzle-cafe'].includes(project.id) ? (
+             <div className="w-full h-full bg-gradient-to-br from-neutral-800/80 via-neutral-900/90 to-neutral-800/80 border border-neutral-700/50 rounded-2xl flex flex-col items-center justify-center group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
+               {/* Animated background gradient */}
+               <div className="absolute inset-0 bg-gradient-to-r from-[#7484dd]/5 via-transparent to-[#7484dd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+               
+               <div className="text-center space-y-6 p-8 relative z-10">
+                 <div className="w-20 h-20 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                   <svg className="w-10 h-10 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                   </svg>
+                 </div>
+                 <div>
+                   <h4 className="text-white font-bold text-xl mb-3 group-hover:text-[#7484dd] transition-colors duration-300">{project.title}</h4>
+                   <p className="text-neutral-400 text-sm font-medium">View Project Image</p>
+                 </div>
+                 <div className="flex gap-3">
+                   <span className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-[#7484dd]/20 to-[#7484dd]/10 text-[#7484dd] rounded-xl border border-[#7484dd]/30 backdrop-blur-sm">
+                     Preview
+                   </span>
+                 </div>
+               </div>
+             </div>
+          ) : (
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={400}
+              height={300}
+              className="w-auto h-full object-contain group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          )}
         </div>
       </div>
 
@@ -134,29 +160,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
           )}
         </div>
 
-        {/* Technologies */}
-        {project.technologies && project.technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2 justify-center">
-            {project.technologies.slice(0, 3).map((tech, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-xs font-medium bg-[#7484dd]/20 text-[#7484dd] rounded-full border border-[#7484dd]/30"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > 3 && (
-              <span className="px-3 py-1 text-xs font-medium bg-neutral-700/50 text-neutral-400 rounded-full">
-                +{project.technologies.length - 3} more
-              </span>
-            )}
-          </div>
-        )}
+                 {/* Technologies */}
+         {project.technologies && project.technologies.length > 0 && (
+           <div className="flex flex-wrap gap-3 justify-center">
+             {project.technologies.slice(0, 3).map((tech, index) => (
+               <span
+                 key={index}
+                 className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-[#7484dd]/15 to-[#7484dd]/5 text-[#7484dd] rounded-xl border border-[#7484dd]/20 backdrop-blur-sm hover:from-[#7484dd]/25 hover:to-[#7484dd]/15 transition-all duration-300"
+               >
+                 {tech}
+               </span>
+             ))}
+             {project.technologies.length > 3 && (
+               <span className="px-4 py-2 text-sm font-medium bg-neutral-800/50 text-neutral-400 rounded-xl border border-neutral-700/30 backdrop-blur-sm">
+                 +{project.technologies.length - 3} more
+               </span>
+             )}
+           </div>
+         )}
 
-        {/* Project Actions */}
-        <div className="flex justify-center gap-3 pt-4">
-          {renderActionButtons()}
-        </div>
+                 {/* Project Actions */}
+         <div className="flex justify-center gap-4 pt-6">
+           {renderActionButtons()}
+         </div>
       </div>
     </motion.article>
   );
@@ -198,8 +224,8 @@ const Works: React.FC<WorksProps> = ({
         )}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+             {/* Projects Grid */}
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
