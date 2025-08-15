@@ -79,7 +79,7 @@ const Certificate: React.FC<CertificateProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Content Section */}
         <div className="order-2 lg:order-1 space-y-8">
-          <div className="card-modern p-8 space-y-6">
+          <div className="card-modern p-8 space-y-12">
             <p className="text-body leading-relaxed">
               All <span className="font-bold" style={{ color: '#7484dd' }}>certificates</span> {description.replace(/^All certificates?\s*/i, '')}
             </p>
@@ -87,13 +87,13 @@ const Certificate: React.FC<CertificateProps> = ({
             {/* Call to Action Button */}
             <Link href={buttonHref} aria-label={`${buttonText} - View all certificates`}>
               <motion.div
-                className="btn-primary inline-flex items-center gap-2"
+                className="mt-16 btn-primary inline-flex items-center gap-3 px-6 py-3"
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
                 <span>{buttonText}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </motion.div>

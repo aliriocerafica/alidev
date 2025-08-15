@@ -10,10 +10,10 @@ export const PERSONAL_INFO = {
     " Graphic Designer"
   ] as string[],
   description: "I am a recent graduate of Bachelor of Science in Computer Science, specializing in Application Development, from The University.",
-  resumeUrl: "https://drive.google.com/file/d/1VbJASK-QYU0JqNvTGk5Fc73D2_AySj6T/view?usp=sharing",
+  resumeUrl: "https://www.canva.com/design/DAF7RgdPHrE/PGvijEWTdSWs60pCbt-IKQ/edit?utm_content=DAF7RgdPHrE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton",
   email: "ceraficaalejandrojr@gmail.com",
   phone: "+639217488822",
-  location: "Pasig City"
+  location: "Buting Pasig City Metro Manila"
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [

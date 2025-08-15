@@ -233,3 +233,86 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #0284c7, #0891b2);
 }
+
+/* Tech Skills Section - Optimized Spacing */
+.techstack {
+  max-width: 100%;
+  overflow: visible;
+  padding: 1rem 0;
+}
+
+.techstack ul {
+  max-width: 100%;
+  overflow: visible;
+  padding: 1rem 0;
+  min-height: 200px;
+}
+
+.techstack li {
+  max-width: 100%;
+  overflow: visible;
+  padding: 0.5rem 0;
+  min-height: 120px;
+}
+
+/* Ensure tech icons don't overflow their containers */
+.techstack .w-20 {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure hover effects are visible */
+.techstack li:hover {
+  z-index: 10;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments for tech grid */
+@media (max-width: 640px) {
+  .techstack ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    min-height: 180px;
+  }
+  
+  .techstack li {
+    min-height: 100px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .techstack ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    min-height: 200px;
+  }
+  
+  .techstack li {
+    min-height: 110px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .techstack ul {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    min-height: 220px;
+  }
+  
+  .techstack li {
+    min-height: 120px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .techstack ul {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2.5rem;
+    min-height: 240px;
+  }
+  
+  .techstack li {
+    min-height: 120px;
+  }
+}
+

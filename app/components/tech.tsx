@@ -37,24 +37,30 @@ const TechGrid: React.FC<TechGridProps> = ({
   }, [onSkillHoverExit]);
 
   return (
-    <div className="mx-auto w-full p-8 mb-24 h-auto">
-      <div className="techstack mb-12">
-        <ul 
-          className="flex flex-wrap justify-center gap-8 md:gap-20 text-lg"
-          role="list"
-          aria-label="Technical skills"
-        >
-          {skills.map((skill) => (
-            <TechIcon
-              key={skill.id}
-              src={skill.icon}
-              alt={`${skill.name} logo`}
-              name={skill.name}
-              onMouseEnter={() => handleSkillEnter(skill)}
-              onMouseLeave={handleSkillLeave}
-            />
-          ))}
-        </ul>
+    <div className="mx-auto w-full p-4 mb-8">
+      <div className="techstack mb-6">
+        {/* Responsive Grid Layout */}
+        <div className="w-full">
+          <ul 
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-6 md:gap-8 lg:gap-10 text-lg px-4"
+            role="list"
+            aria-label="Technical skills"
+            style={{ 
+              minHeight: "200px"
+            }}
+          >
+            {skills.map((skill) => (
+              <TechIcon
+                key={skill.id}
+                src={skill.icon}
+                alt={`${skill.name} logo`}
+                name={skill.name}
+                onMouseEnter={() => handleSkillEnter(skill)}
+                onMouseLeave={handleSkillLeave}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

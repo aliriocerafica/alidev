@@ -109,7 +109,7 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <p className="text-neutral-300">Oriental Mindoro, Philippines</p>
+              <p className="text-neutral-300">Buting Pasig City Metro Manila</p>
             </div>
             
             <div className="pt-4">

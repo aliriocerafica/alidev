@@ -214,7 +214,7 @@ const Contact: React.FC<ContactProps> = ({
                   </div>
                   <div>
                     <p className="text-neutral-300 text-sm">Email</p>
-                    <p className="text-white font-medium">alirio.cerafica@gmail.com</p>
+                    <p className="text-white font-medium">ceraficaalejandrojr@gmail.com</p>
                   </div>
                 </motion.div>
 
@@ -231,7 +231,7 @@ const Contact: React.FC<ContactProps> = ({
                   </div>
                   <div>
                     <p className="text-neutral-300 text-sm">Location</p>
-                    <p className="text-white font-medium">Oriental Mindoro, Philippines</p>
+                    <p className="text-white font-medium">Buting Pasig City Metro Manila</p>
                   </div>
                 </motion.div>
 
