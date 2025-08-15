@@ -1,26 +1,118 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
+import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
+import { SectionProps, TechSkill } from '../types';
+import { TECH_SKILLS, ANIMATION_VARIANTS } from '../data/constants';
 import TechIcon from './techIcon';
 
-const animationVariants = {
-  hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0 },
+interface TechProps extends SectionProps {
+  skills?: TechSkill[];
+  categories?: ('frontend' | 'backend' | 'design' | 'other')[];
+  showCategories?: boolean;
+  onSkillHover?: (skill: TechSkill) => void;
+  onSkillHoverExit?: () => void;
+}
+
+interface TechGridProps {
+  skills: TechSkill[];
+  onSkillHover?: (skill: TechSkill) => void;
+  onSkillHoverExit?: () => void;
+}
+
+/**
+ * Tech skills grid component
+ */
+const TechGrid: React.FC<TechGridProps> = ({ 
+  skills, 
+  onSkillHover, 
+  onSkillHoverExit 
+}) => {
+  const handleSkillEnter = useCallback((skill: TechSkill) => {
+    onSkillHover?.(skill);
+  }, [onSkillHover]);
+
+  const handleSkillLeave = useCallback(() => {
+    onSkillHoverExit?.();
+  }, [onSkillHoverExit]);
+
+  return (
+    <div className="mx-auto w-full p-8 mb-24 h-auto">
+      <div className="techstack mb-12">
+        <ul 
+          className="flex flex-wrap justify-center gap-8 md:gap-20 text-lg"
+          role="list"
+          aria-label="Technical skills"
+        >
+          {skills.map((skill) => (
+            <TechIcon
+              key={skill.id}
+              src={skill.icon}
+              alt={`${skill.name} logo`}
+              name={skill.name}
+              onMouseEnter={() => handleSkillEnter(skill)}
+              onMouseLeave={handleSkillLeave}
+            />
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 };
 
-const Tech = () => {
-  const handleHover = (iconName: string) => {
-    // Handle hover logic here
-  };
+/**
+ * Tech skills section component that displays technical skills with animations
+ */
+const Tech: React.FC<TechProps> = ({
+  className = "",
+  skills = TECH_SKILLS,
+  categories,
+  showCategories = false,
+  onSkillHover,
+  onSkillHoverExit,
+  ...props
+}) => {
+  // Filter skills by categories if specified
+  const filteredSkills = categories
+    ? skills.filter(skill => categories.includes(skill.category || 'other'))
+    : skills;
 
-  const handleHoverExit = () => {
-    // Handle hover exit logic here
+  // Group skills by category for display
+  const skillsByCategory = showCategories
+    ? filteredSkills.reduce((acc, skill) => {
+        const category = skill.category || 'other';
+        if (!acc[category]) {
+          acc[category] = [];
+        }
+        acc[category].push(skill);
+        return acc;
+      }, {} as Record<string, TechSkill[]>)
+    : { all: filteredSkills };
+
+  const handleSkillHover = useCallback((skill: TechSkill) => {
+    console.log(`Hovering over skill: ${skill.name}`);
+    onSkillHover?.(skill);
+  }, [onSkillHover]);
+
+  const handleSkillHoverExit = useCallback(() => {
+    onSkillHoverExit?.();
+  }, [onSkillHoverExit]);
+
+  const categoryLabels = {
+    frontend: 'Frontend Technologies',
+    backend: 'Backend Technologies', 
+    design: 'Design Tools',
+    other: 'Other Skills',
+    all: 'Technical Skills'
   };
 
   return (
-    <div>
+    <section 
+      className={className}
+      aria-label="Technical skills section"
+      {...props}
+    >
+      {/* Empty placeholder section for spacing/animations */}
       <InView triggerOnce>
         {({ inView, ref }) => (
           <motion.div
@@ -29,12 +121,13 @@ const Tech = () => {
             className="mt-12"
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            variants={animationVariants}
-          >
- 
-          </motion.div>
+            variants={ANIMATION_VARIANTS.fadeInLeft}
+            transition={{ duration: 0.6 }}
+          />
         )}
       </InView>
+
+      {/* Main skills section */}
       <InView triggerOnce>
         {({ inView, ref }) => (
           <motion.div
@@ -42,89 +135,35 @@ const Tech = () => {
             className="skills-section fade-animation"
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            variants={animationVariants}
+            variants={ANIMATION_VARIANTS.fadeInLeft}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="mx-auto w-full p-8 mb-24 h-auto">
-              <div className="techstack mb-12">
-                <ul className="flex flex-wrap justify-center gap-8 md:gap-20 text-lg">
-                  <TechIcon
-                    src="/dev/Group 4.svg"
-                    alt="HTML5 Logo"
-                    name="Typescript"
-                    onMouseEnter={() => handleHover('HTML5')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/Group 5.svg"
-                    alt="CSS3 Logo"
-                    name="Javascript"
-                    onMouseEnter={() => handleHover('CSS3')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/Group 8.svg"
-                    alt="JS Logo"
-                    name="HTML"
-                    onMouseEnter={() => handleHover('JavaScript')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/Group 9.svg"
-                    alt="React Logo"
-                    name="HTML 5"
-                    onMouseEnter={() => handleHover('React')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/Group 10.svg"
-                    alt="Tailwind CSS Logo"
-                    name="Typescript"
-                    onMouseEnter={() => handleHover('Tailwind CSS')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/bootstrap.svg"
-                    alt="Bootstrap Logo"
-                    name="Bootstrap"
-                    onMouseEnter={() => handleHover('Bootstrap')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/Group 16.svg"
-                    alt="Other Logo"
-                    name="Figma"
-                    onMouseEnter={() => handleHover('Other')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/nodejs-icon.svg"
-                    alt="Node.js Logo"
-                    name="Node.js"
-                    onMouseEnter={() => handleHover('Node.js')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/dev/laravel-2.svg"
-                    alt="Laravel Logo"
-                    name="Laravel"
-                    onMouseEnter={() => handleHover('Laravel')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  <TechIcon
-                    src="/svg/tailwind-css.svg"
-                    alt="Tailwind CSS Logo"
-                    name="Tailwind Css"
-                    onMouseEnter={() => handleHover('Tailwind')}
-                    onMouseLeave={handleHoverExit}
-                  />
-                  {/* Add more TechIcon components here */}
-                </ul>
+            {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
+              <div key={category} className="mb-8">
+                {showCategories && (
+                  <h3 className="text-xl font-semibold text-center text-white mb-6">
+                    {categoryLabels[category as keyof typeof categoryLabels]}
+                  </h3>
+                )}
+                
+                <TechGrid
+                  skills={categorySkills}
+                  onSkillHover={handleSkillHover}
+                  onSkillHoverExit={handleSkillHoverExit}
+                />
               </div>
-            </div>
+            ))}
+
+            {/* Empty State */}
+            {filteredSkills.length === 0 && (
+              <div className="text-center text-gray-400 mt-12">
+                <p>No skills to display in the selected categories.</p>
+              </div>
+            )}
           </motion.div>
         )}
       </InView>
-    </div>
+    </section>
   );
 };
 

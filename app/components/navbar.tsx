@@ -19,7 +19,7 @@ const Navbar = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop,
+        top: targetElement.offsetTop - 80,
         behavior: "smooth",
       });
     }
@@ -37,7 +37,6 @@ const Navbar = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -46,223 +45,195 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      if (scrollPosition > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(scrollPosition > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
+  const navItems = [
+    { href: "/", label: "Home", id: null },
+    { href: "#about", label: "About", id: "about" },
+    { href: "#Works", label: "Projects", id: "Works" },
+    { href: "#tech1", label: "Skills", id: "tech1" },
+    { href: "/bitlock", label: "Infosec", id: null },
+    { href: "#certificate", label: "Certificates", id: "certificate" },
+  ];
+
   return (
-    <motion.div
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white text-black shadow-lg" : "bg-transparent"
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-800/50 shadow-hard" 
+          : "bg-transparent"
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 120 }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <nav>
-        <div
-          className={`navbar mx-auto h-auto p-4 text-right text-white rounded-full w-3/4 flex items-center justify-between relative ${
-            isScrolled ? "" : "mt-8"
-          }`}
-        >
-          <div
-            className={`logo ml-2 font-bold ${isScrolled ? "text-black" : ""}`}
-          >
-            <Link href="/">
+      <nav className="container-modern">
+        <div className={`flex items-center justify-between h-20 px-6 lg:px-8 ${
+          isScrolled ? "" : "mt-4"
+        }`}>
           
-                <h1>
-                  <span className="text-[#7786df] text-2xl">ali</span>DEV
-                </h1>
-     
+          {/* Logo */}
+          <motion.div
+            className="logo"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href="/" className="flex items-center space-x-2">
+              <span className="font-display font-bold text-2xl lg:text-3xl">
+                <span style={{ color: '#7484dd' }}>ali</span>
+                <span className="text-white">DEV</span>
+              </span>
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Mobile Menu Icon */}
-          <div className="block lg:hidden">
-            <button onClick={toggleMobileMenu}>
-              {mobileMenuOpen ? (
-                <svg
-                  className={`w-6 h-6 ${
-                    isScrolled ? "text-black" : "text-white"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className={`w-6 h-6 ${
-                    isScrolled ? "text-black" : "text-white"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu Modal */}
-          <AnimatePresence>
-            {mobileMenuOpen && (
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.map((item, index) => (
               <motion.div
-                className="absolute top-full left-0 bg-white text-black shadow-lg rounded-lg mt-2 w-full text-center"
-                initial={{ opacity: 0, y: -20 }}
+                key={item.label}
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.1 }}
+                transition={{ delay: index * 0.1 }}
               >
-                <div className="p-2">
-                  <div className="flex flex-col space-y-4">
-                    <Link href="/" className="block text-lg hover:font-bold">
-                      Home
-                    </Link>
-                    <Link
-                      href="#about"
-                      onClick={(e) => handleSmoothScroll(e, "about")}
-                      className="block text-lg hover:font-bold"
-                    >
-                      About
-                    </Link>
-                    <Link
-                      href="#Works"
-                      onClick={(e) => handleSmoothScroll(e, "Works")}
-                      className="block text-lg hover:font-bold"
-                    >
-                      Projects
-                    </Link>
-                    <Link
-                      href="#tech1"
-                      onClick={(e) => handleSmoothScroll(e, "tech1")}
-                      className="block text-lg hover:font-bold"
-                    >
-                      Skills
-                      </Link>
-                    <Link
-                      href="/bitlock"
-                   
-                      className="block text-lg hover:font-bold"
-                    >
-                      Infosec
-                 
-                    </Link>
-                    <Link
-                      href="#tech1"
-                      onClick={(e) => handleSmoothScroll(e, "tech1")}
-                      className="block text-lg hover:font-bold"
-                    >
-                      Certificate
-                    </Link>
-                  </div>
-                </div>
+                <Link
+                  href={item.href}
+                  onClick={item.id ? (e) => handleSmoothScroll(e, item.id) : undefined}
+                  className={`relative text-sm lg:text-base font-medium transition-all duration-300 group ${
+                    isScrolled ? "text-neutral-200" : "text-white"
+                  } hover:text-[#7484dd]`}
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7484dd] rounded-full transition-all duration-300 group-hover:w-full" />
+                </Link>
               </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-6 flex-1 justify-center">
-            <Link
-              href="/"
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              href="#about"
-              onClick={(e) => handleSmoothScroll(e, "about")}
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              About
-            </Link>
-            <Link
-              href="#Works"
-              onClick={(e) => handleSmoothScroll(e, "Works")}
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              Projects
-            </Link>
-            <Link
-              href="#tech1"
-              onClick={(e) => handleSmoothScroll(e, "tech1")}
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              Skills
-            </Link>
-            <Link
-              href="/bitlock"
-           
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              Infosec
-            </Link>
-            <Link
-              href="#tech1"
-              onClick={(e) => handleSmoothScroll(e, "tech1")}
-              className={`relative hover:font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            >
-              Certificate
-            </Link>
+            ))}
           </div>
 
-          {/* Contact Me Button */}
-          <div>
-            <Link
-              href="#contact"
-              onClick={(e) => handleSmoothScroll(e, "contact")}
-              passHref
+          {/* Contact Button & Mobile Menu Toggle */}
+          <div className="flex items-center space-x-4">
+            {/* Contact Button (Desktop) */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8 }}
             >
-              <motion.p
-                className={`contact font-normal border-2 border-[#7484dd] p-2 text-sm rounded-lg hover:bg-[#4855a3] hover:text-white hover:border-white ${
-                  isScrolled ? "text-black" : ""
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Link
+                href="#contact"
+                onClick={(e) => handleSmoothScroll(e, "contact")}
               >
-                Contact Me
-              </motion.p>
-            </Link>
+                <motion.button
+                  className="border-2 border-[#7484dd] text-[#7484dd] hover:bg-[#7484dd] hover:text-white px-4 py-2 rounded-xl transition-all duration-200"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Contact Me
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              className="lg:hidden p-2 rounded-xl bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50"
+              onClick={toggleMobileMenu}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Toggle mobile menu"
+            >
+              <motion.div
+                animate={mobileMenuOpen ? "open" : "closed"}
+                className="w-6 h-6 flex flex-col justify-center items-center"
+              >
+                <motion.span
+                  className="w-5 h-0.5 bg-white rounded-full"
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: 45, y: 6 }
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  className="w-5 h-0.5 bg-white rounded-full mt-1.5"
+                  variants={{
+                    closed: { opacity: 1 },
+                    open: { opacity: 0 }
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.span
+                  className="w-5 h-0.5 bg-white rounded-full mt-1.5"
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: -45, y: -6 }
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
+            </motion.button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="lg:hidden absolute top-full left-4 right-4 mt-2"
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="card-glass p-6 space-y-4">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={item.id ? (e) => handleSmoothScroll(e, item.id) : undefined}
+                      className="block text-white font-medium py-3 px-4 rounded-xl hover:bg-white/10 transition-colors duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                
+                {/* Mobile Contact Button */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  className="pt-4 border-t border-white/10"
+                >
+                  <Link
+                    href="#contact"
+                    onClick={(e) => handleSmoothScroll(e, "contact")}
+                  >
+                    <motion.button
+                      className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-6 py-3 rounded-xl transition-all duration-200"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Contact Me
+                    </motion.button>
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-    </motion.div>
+    </motion.header>
   );
 };
 

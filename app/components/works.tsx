@@ -1,223 +1,227 @@
 'use client';
 import React from "react";
-import { motion } from "framer-motion"; // Import motion from Framer Motion
-import "../css/home.css";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { SectionProps, Project } from "../types";
+import { PROJECTS } from "../data/constants";
+import "../css/home.css";
 
-const Works = () => {
+interface WorksProps extends SectionProps {
+  projects?: Project[];
+  gridColumns?: {
+    default: number;
+    sm: number;
+    lg: number;
+  };
+  showDivider?: boolean;
+}
+
+interface ProjectCardProps {
+  project: Project;
+  onHover?: (project: Project) => void;
+}
+
+/**
+ * Individual project card component
+ */
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
+  const cardVariants = {
+    hover: { scale: 1.05 }
+  };
+
+  const handleMouseEnter = () => {
+    onHover?.(project);
+  };
+
+  const renderActionButtons = () => {
+    const buttons = [];
+
+    // Figma View Button
+    if (project.figmaUrl) {
+      buttons.push(
+        <a
+          key="figma"
+          href={project.figmaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} design in Figma`}
+        >
+          <button className="btn-ghost text-xs px-3 py-2 flex items-center gap-2">
+            <span>View Design</span>
+            <Image
+              src="/dev/Group 16.svg"
+              alt="Figma icon"
+              width={14}
+              height={14}
+              className="w-3.5 h-3.5"
+            />
+          </button>
+        </a>
+      );
+    }
+
+    // GitHub Repository Button
+    if (project.githubUrl) {
+      buttons.push(
+        <a
+          key="github"
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} source code on GitHub`}
+        >
+          <button className="btn-secondary text-xs px-3 py-2 flex items-center gap-2">
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>Repository</span>
+          </button>
+        </a>
+      );
+    }
+
+    // Live URL Button
+    if (project.liveUrl) {
+      buttons.push(
+        <a
+          key="live"
+          href={project.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`View ${project.title} live demo`}
+        >
+          <button className="btn-primary text-xs px-3 py-2 flex items-center gap-2">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span>Live Demo</span>
+          </button>
+        </a>
+      );
+    }
+
+    return buttons;
+  };
+
   return (
-    <div className="work mx-auto w-4/5 p-2">
-      <div className="about mx-auto w-full p-2 text-2xl gradient-text text-center font-bold mt-6">
-        <h1>Works</h1>
-        <div className="w-16 mx-auto border-b-4 border-white-400 mt-2 mb-24 rounded-full"></div>
-      </div>
-      <div className="flex justify-center items-center mt-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-          {/* Wrap each box with motion.div */}
-          <motion.div
-            className="box rounded-md flex flex-col justify-between p-4 text-center"
-            style={{
-              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-            }}
-            whileHover={{ scale: 1.05 }} // Scale effect on hover
-          >
-            <div className="flex justify-center items-center h-64">
-              <Image
-                src="/Pet.png"
-                alt="Pet Taxi"
-                width={1200}
-                height={1200}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            <div className="mt-4 text-left">
-              <a
-                href="https://www.figma.com/design/cmJrmeFFeHKCGYFaedkmY5/Pet-Taxi-Mobile-Alidev?node-id=0-1&t=VYwBzxbrfKRb9mxd-1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                  <span>View</span>
-                  <Image
-                    src="/dev/Group 16.svg"
-                    alt="Other Logo"
-                    width={16}
-                    height={16}
-                    className="w-4 h-4 ml-2"
-                  />
-                </button>
-              </a>
-            </div>
-          </motion.div>
-          {/* Repeat the same for other boxes */}
-          <motion.div
-            className="box rounded-md flex flex-col justify-between p-4 text-center"
-            style={{
-              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="flex justify-center items-center h-64">
-              <Image
-                src="/eB.png"
-                alt="Ebarangay"
-                width={1200}
-                height={1200}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            <div className="mt-4 text-left">
-              <a
-                href="https://www.figma.com/design/t53wU5lvmslTRHLQb2HEAb/Ebarangay?node-id=0-1&t=4u7qiusbrmlF9T8Q-1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                  <span>View</span>
-                  <Image
-                    src="/dev/Group 16.svg"
-                    alt="Other Logo"
-                    width={16}
-                    height={16}
-                    className="w-4 h-4 ml-2"
-                  />
-                </button>
-              </a>
-            </div>
-          </motion.div>
-          {/* Repeat the same for other boxes */}
-          <motion.div
-            className="box rounded-md flex flex-col justify-between p-4 text-center"
-            style={{
-              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="flex justify-center items-center h-64">
-              <Image
-                src="/Watch.png"
-                alt="Watch"
-                width={1200}
-                height={1200}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            <div className="mt-4 text-left">
-              <a
-                href="https://www.figma.com/design/Y3wrqCns3xbytwih42GlQs/Watch?t=4u7qiusbrmlF9T8Q-1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                  <span>View</span>
-                  <Image
-                    src="/dev/Group 16.svg"
-                    alt="Other Logo"
-                    width={16}
-                    height={16}
-                    className="w-4 h-4 ml-2"
-                  />
-                </button>
-              </a>
-            </div>
-          </motion.div>
-          {/* Repeat the same for other boxes */}
-          <motion.div
-            className="box rounded-md flex flex-col justify-between p-4 text-center"
-            style={{
-              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="flex justify-center items-center h-64">
-              <Image
-                src="/displayP.png"
-                alt="Portfolio"
-                width={1200}
-                height={1200}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            <div className="mt-4 text-left">
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.figma.com/design/l8o1u26Tg3Xlqlq4uut0U6/Portfolio?node-id=0-1&t=ep6rADEtWEo21CAg-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                    <span>View</span>
-                    <Image
-                      src="/dev/Group 16.svg"
-                      alt="Other Logo"
-                      width={16}
-                      height={16}
-                      className="w-4 h-4 ml-2"
-                    />
-                  </button>
-                </a>
-                <a
-                  href="https://github.com/aliriocerafica/alidev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                    <span>Git Repository</span>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </motion.div>
-          {/* Repeat the same for other boxes */}
-          <motion.div
-            className="box rounded-md flex flex-col justify-between p-4 text-center"
-            style={{
-              background: "linear-gradient(to right, #7484dd, #e0e3eb)",
-            }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="flex justify-center items-center h-64">
-              <Image
-                src="/project5.png"
-                alt="Coffee Shop"
-                width={1200}
-                height={1200}
-                className="w-auto h-full object-contain"
-              />
-            </div>
-            <div className="mt-4 text-left">
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.figma.com/design/O1Utop0WQWW7AKnoqKxAyL/Coffee-Shop?node-id=0-1&t=6y5oP29Ybk4xVHtK-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                    <span>View</span>
-                    <Image
-                      src="/dev/Group 16.svg"
-                      alt="Other Logo"
-                      width={16}
-                      height={16}
-                      className="w-4 h-4 ml-2"
-                    />
-                  </button>
-                </a>
-                <a
-                  href="https://github.com/aliriocerafica/alidev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* <button className="flex items-center text-sm border-2 text-white hover:bg-[#4855a3] hover:text-white hover:border-white border-gray-300 p-2 rounded-md">
-                    <span>Git Repository</span>
-                  </button> */}
-                </a>
-              </div>
-            </div>
-          </motion.div>
+    <motion.article
+      className="card-modern flex flex-col justify-between p-6 text-center group card-hover border-glow"
+      variants={cardVariants}
+      whileHover="hover"
+      onMouseEnter={handleMouseEnter}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Project Image */}
+      <div className="flex justify-center items-center h-64 mb-6">
+        <div className="relative overflow-hidden rounded-xl">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={400}
+            height={300}
+            className="w-auto h-full object-contain group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
         </div>
       </div>
-    </div>
+
+      {/* Project Info */}
+      <div className="space-y-4">
+        <div className="text-center">
+          <h3 className="heading-sm text-white mb-2">{project.title}</h3>
+          {project.description && (
+            <p className="text-muted text-sm">{project.description}</p>
+          )}
+        </div>
+
+        {/* Technologies */}
+        {project.technologies && project.technologies.length > 0 && (
+          <div className="flex flex-wrap gap-2 justify-center">
+            {project.technologies.slice(0, 3).map((tech, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 text-xs font-medium bg-[#7484dd]/20 text-[#7484dd] rounded-full border border-[#7484dd]/30"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.technologies.length > 3 && (
+              <span className="px-3 py-1 text-xs font-medium bg-neutral-700/50 text-neutral-400 rounded-full">
+                +{project.technologies.length - 3} more
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Project Actions */}
+        <div className="flex justify-center gap-3 pt-4">
+          {renderActionButtons()}
+        </div>
+      </div>
+    </motion.article>
+  );
+};
+
+/**
+ * Works/Projects section component that displays a grid of project cards
+ */
+const Works: React.FC<WorksProps> = ({
+  className = "",
+  projects = PROJECTS,
+  gridColumns = {
+    default: 1,
+    sm: 2,
+    lg: 3
+  },
+  title = "Works",
+  showDivider = true,
+  ...props
+}) => {
+  const handleProjectHover = (project: Project) => {
+    // Optional: Handle project hover events for analytics or other features
+    console.log(`Hovering over project: ${project.title}`);
+  };
+
+  const gridClasses = `grid grid-cols-${gridColumns.default} sm:grid-cols-${gridColumns.sm} lg:grid-cols-${gridColumns.lg} gap-4 w-full`;
+
+  return (
+    <section 
+      className={className}
+      aria-label="Portfolio projects section"
+      {...props}
+    >
+      {/* Section Header */}
+      <div className="text-center mb-20">
+        <h2 className="heading-lg gradient-text-primary mb-4">{title}</h2>
+        {showDivider && (
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto rounded-full" />
+        )}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            onHover={handleProjectHover}
+          />
+        ))}
+      </div>
+
+      {/* Empty State */}
+      {projects.length === 0 && (
+        <div className="text-center text-neutral-400 mt-12 p-12 card-modern">
+          <div className="space-y-4">
+            <svg className="w-16 h-16 mx-auto text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <p className="text-lg font-medium">No projects to display</p>
+            <p className="text-sm text-neutral-500">Check back later for new projects!</p>
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 
