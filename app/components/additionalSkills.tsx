@@ -50,7 +50,7 @@ const AdditionalSkills = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="card-modern p-8 group hover:border-[#7484dd]/50 transition-all duration-300"
+              className="card-modern p-8 group hover:border-[#7484dd]/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-visible"
             >
               {/* Skill Header */}
               <div className="flex items-center gap-4 mb-6">
@@ -74,17 +74,43 @@ const AdditionalSkills = () => {
                 </h3>
               </div>
 
-              {/* Skill Details */}
-              <ul className="space-y-3">
-                {skill.details.map((detail, detailIndex) => (
-                  <li key={detailIndex} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[#7484dd] rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-neutral-300 text-sm leading-relaxed">
-                      {detail}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {/* Floating Expand Details */}
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[calc(100%+2rem)] bg-neutral-900/95 backdrop-blur-xl border border-neutral-700/50 rounded-2xl p-6 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-500 scale-95 group-hover:scale-100 shadow-2xl">
+                <div className="relative">
+                  {/* Arrow pointing up */}
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neutral-900/95 border-l border-t border-neutral-700/50 rotate-45"></div>
+                  
+                  <ul className="space-y-3">
+                    {skill.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start gap-3">
+                        <div className="w-2 h-2 bg-[#7484dd] rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="text-neutral-200 text-sm leading-relaxed">
+                          {detail}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Hover Indicator */}
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                <div className="w-8 h-8 bg-[#7484dd]/20 rounded-full flex items-center justify-center">
+                  <svg 
+                    className="w-4 h-4 text-[#7484dd]" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M7 11l5-5m0 0l5 5m-5-5v12" 
+                    />
+                  </svg>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
