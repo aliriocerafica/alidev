@@ -115,7 +115,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
       <div className="flex justify-center items-center h-64 mb-6">
         <div className="relative overflow-hidden rounded-xl w-full h-full">
           {/* Check if project should show view image card */}
-                     {['alma-villa', 'ardi-ai-assistant', 'b-dazzle-cafe'].includes(project.id) ? (
+                     {['alma-villa', 'b-dazzle-cafe'].includes(project.id) ? (
              <div className="w-full h-full bg-gradient-to-br from-neutral-800/80 via-neutral-900/90 to-neutral-800/80 border border-neutral-700/50 rounded-2xl flex flex-col items-center justify-center group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
                {/* Animated background gradient */}
                <div className="absolute inset-0 bg-gradient-to-r from-[#7484dd]/5 via-transparent to-[#7484dd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

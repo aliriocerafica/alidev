@@ -137,15 +137,6 @@ export const CERTIFICATES: Certificate[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: "ardi-ai-assistant",
-    title: "Ardi AI Assistant",
-    description: "Advanced AI-powered knowledge base and assistant platform with intelligent conversation capabilities and modern user interface",
-    image: "/Pet.png", // You can update this with the actual image
-    githubUrl: "https://github.com/aliriocerafica/Ardi.git",
-    liveUrl: "https://ardiv2-knowledgebasecom.vercel.app",
-    technologies: ["Next.js", "TypeScript", "AI/ML", "Tailwind CSS", "React"]
-  },
-  {
     id: "alma-villa",
     title: "Alma Villa Barangay Portal",
     description: "Full-stack barangay management system with resident registration, document requests, news announcements, and administrative services",
