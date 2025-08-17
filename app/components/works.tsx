@@ -113,40 +113,42 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
      >
       {/* Project Image */}
       <div className="flex justify-center items-center h-64 mb-6">
-        <div className="relative overflow-hidden rounded-xl w-full h-full">
+        <div className="relative w-full h-full">
           {/* Check if project should show view image card */}
-                     {['alma-villa', 'b-dazzle-cafe'].includes(project.id) ? (
-             <div className="w-full h-full bg-gradient-to-br from-neutral-800/80 via-neutral-900/90 to-neutral-800/80 border border-neutral-700/50 rounded-2xl flex flex-col items-center justify-center group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
-               {/* Animated background gradient */}
-               <div className="absolute inset-0 bg-gradient-to-r from-[#7484dd]/5 via-transparent to-[#7484dd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-               
-               <div className="text-center space-y-6 p-8 relative z-10">
-                 <div className="w-20 h-20 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                   <svg className="w-10 h-10 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                   </svg>
-                 </div>
-                 <div>
-                   <h4 className="text-white font-bold text-xl mb-3 group-hover:text-[#7484dd] transition-colors duration-300">{project.title}</h4>
-                   <p className="text-neutral-400 text-sm font-medium">View Project Image</p>
-                 </div>
-                 <div className="flex gap-3">
-                   <span className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-[#7484dd]/20 to-[#7484dd]/10 text-[#7484dd] rounded-xl border border-[#7484dd]/30 backdrop-blur-sm">
-                     Preview
-                   </span>
-                 </div>
-               </div>
-             </div>
+          {['alma-villa', 'b-dazzle-cafe'].includes(project.id) ? (
+            <div className="w-full h-full bg-gradient-to-br from-neutral-800/80 via-neutral-900/90 to-neutral-800/80 border border-neutral-700/50 rounded-2xl flex flex-col items-center justify-center group-hover:scale-105 transition-all duration-500 relative overflow-hidden">
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#7484dd]/5 via-transparent to-[#7484dd]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="text-center space-y-4 lg:space-y-6 p-6 lg:p-8 relative z-20">
+                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <svg className="w-8 h-8 lg:w-10 lg:h-10 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-lg lg:text-xl mb-2 lg:mb-3 group-hover:text-[#7484dd] transition-colors duration-300">{project.title}</h4>
+                  <p className="text-neutral-400 text-xs lg:text-sm font-medium">View Project Image</p>
+                </div>
+                <div className="flex gap-2 lg:gap-3">
+                  <span className="px-3 lg:px-4 py-1.5 lg:py-2 text-xs lg:text-sm font-semibold bg-gradient-to-r from-[#7484dd]/20 to-[#7484dd]/10 text-[#7484dd] rounded-xl border border-[#7484dd]/30 backdrop-blur-sm">
+                    Preview
+                  </span>
+                </div>
+              </div>
+            </div>
           ) : (
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={400}
-              height={300}
-              className="w-auto h-full object-contain group-hover:scale-105 transition-transform duration-300"
-              loading="lazy"
-            />
+            <div className="relative overflow-hidden rounded-xl w-full h-full">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={400}
+                height={300}
+                className="w-auto h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
           )}
         </div>
       </div>

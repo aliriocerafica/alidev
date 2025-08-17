@@ -169,18 +169,18 @@ const Contact: React.FC<ContactProps> = ({
     >
       <div className="container-modern">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 lg:mb-16">
           <motion.h2 
-            className="heading-lg gradient-text-primary mb-4"
+            className="heading-lg gradient-text-primary mb-3 lg:mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {title}
           </motion.h2>
-          <div className="w-20 h-1 bg-[#7484dd] mx-auto rounded-full mb-6" />
+          <div className="w-16 lg:w-20 h-1 bg-[#7484dd] mx-auto rounded-full mb-4 lg:mb-6" />
           <motion.p 
-            className="text-body text-center max-w-2xl mx-auto"
+            className="text-body text-center max-w-2xl mx-auto px-4 lg:px-0 text-sm lg:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -189,108 +189,108 @@ const Contact: React.FC<ContactProps> = ({
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Contact Information */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="card-modern p-8 space-y-8">
-              <h3 className="heading-md text-[#7484dd] mb-6">Get in Touch</h3>
+            <div className="card-modern p-6 lg:p-8 space-y-6 lg:space-y-8">
+              <h3 className="heading-md text-[#7484dd] mb-4 lg:mb-6">Get in Touch</h3>
               
               {/* Contact Methods */}
-              <div className="space-y-6">
+              <div className="space-y-4 lg:space-y-6">
                 <motion.div 
-                  className="flex items-center gap-4 group"
+                  className="flex items-center gap-3 lg:gap-4 group"
                   whileHover={{ x: 10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-14 h-14 bg-[#7484dd]/20 rounded-full flex items-center justify-center group-hover:bg-[#7484dd]/30 transition-colors">
-                    <svg className="w-6 h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#7484dd]/30 group-hover:to-[#7484dd]/20 transition-all duration-300 shadow-lg group-hover:shadow-[#7484dd]/20">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-neutral-300 text-sm">Email</p>
-                    <p className="text-white font-medium">ceraficaalejandrojr@gmail.com</p>
+                    <p className="text-white font-medium text-sm lg:text-base break-words">ceraficaalejandrojr@gmail.com</p>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-center gap-4 group"
+                  className="flex items-center gap-3 lg:gap-4 group"
                   whileHover={{ x: 10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-14 h-14 bg-[#7484dd]/20 rounded-full flex items-center justify-center group-hover:bg-[#7484dd]/30 transition-colors">
-                    <svg className="w-6 h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#7484dd]/30 group-hover:to-[#7484dd]/20 transition-all duration-300 shadow-lg group-hover:shadow-[#7484dd]/20">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-neutral-300 text-sm">Location</p>
-                    <p className="text-white font-medium">Buting Pasig City Metro Manila</p>
+                    <p className="text-white font-medium text-sm lg:text-base">Buting Pasig City<br className="hidden sm:block" /> Metro Manila</p>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-center gap-4 group"
+                  className="flex items-center gap-3 lg:gap-4 group"
                   whileHover={{ x: 10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-14 h-14 bg-[#7484dd]/20 rounded-full flex items-center justify-center group-hover:bg-[#7484dd]/30 transition-colors">
-                    <svg className="w-6 h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-[#7484dd]/20 to-[#7484dd]/10 rounded-full flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#7484dd]/30 group-hover:to-[#7484dd]/20 transition-all duration-300 shadow-lg group-hover:shadow-[#7484dd]/20">
+                    <svg className="w-5 h-5 lg:w-6 lg:h-6 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-neutral-300 text-sm">Response Time</p>
-                    <p className="text-white font-medium">Usually within 24 hours</p>
+                    <p className="text-white font-medium text-sm lg:text-base">Usually within 24 hours</p>
                   </div>
                 </motion.div>
               </div>
 
               {/* Social Links */}
-              <div className="pt-6 border-t border-neutral-700">
-                <p className="text-neutral-300 text-sm mb-4">Follow me on social media</p>
-                <div className="flex gap-4">
+              <div className="pt-4 lg:pt-6 border-t border-neutral-700">
+                <p className="text-neutral-300 text-sm mb-3 lg:mb-4">Follow me on social media</p>
+                <div className="flex gap-3 lg:gap-4">
                   <motion.a
                     href="https://github.com/aliriocerafica"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-[#7484dd]/20 transition-colors group"
+                    className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-[#7484dd]/20 hover:to-[#7484dd]/10 transition-all duration-300 group shadow-lg hover:shadow-[#7484dd]/20"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <svg className="w-5 h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </motion.a>
 
                   <motion.a
-                    href="https://linkedin.com/in/aliriocerafica"
+                    href="https://www.linkedin.com/in/alejandro-cerafica-jr-926a7a23b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-[#7484dd]/20 transition-colors group"
+                    className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-[#7484dd]/20 hover:to-[#7484dd]/10 transition-all duration-300 group shadow-lg hover:shadow-[#7484dd]/20"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <svg className="w-5 h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                   </motion.a>
 
                   <motion.a
-                    href="https://facebook.com/aliriocerafica"
+                    href="https://www.facebook.com/RioCer22/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center hover:bg-[#7484dd]/20 transition-colors group"
+                    className="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-[#7484dd]/20 hover:to-[#7484dd]/10 transition-all duration-300 group shadow-lg hover:shadow-[#7484dd]/20"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <svg className="w-5 h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 fill-white group-hover:fill-[#7484dd]" viewBox="0 0 24 24">
                       <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
                   </motion.a>
@@ -301,15 +301,15 @@ const Contact: React.FC<ContactProps> = ({
 
           {/* Contact Form */}
           <motion.div 
-            className="card-modern p-8"
+            className="card-modern p-6 lg:p-8"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6" noValidate>
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-white font-medium mb-2">
+                <label htmlFor="name" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Name <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -319,7 +319,7 @@ const Contact: React.FC<ContactProps> = ({
                     name="name"
                     value={formState.data.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
                       formState.errors.name 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
@@ -330,7 +330,7 @@ const Contact: React.FC<ContactProps> = ({
                     disabled={formState.isSubmitting}
                   />
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                    <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
@@ -338,13 +338,13 @@ const Contact: React.FC<ContactProps> = ({
                 {formState.errors.name && (
                   <motion.p 
                     id="name-error" 
-                    className="text-red-400 text-sm mt-2 flex items-center gap-2" 
+                    className="text-red-400 text-xs lg:text-sm mt-2 flex items-center gap-2" 
                     role="alert"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {formState.errors.name}
@@ -354,7 +354,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-white font-medium mb-2">
+                <label htmlFor="email" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Email <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -364,7 +364,7 @@ const Contact: React.FC<ContactProps> = ({
                     name="email"
                     value={formState.data.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
                       formState.errors.email 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
@@ -375,7 +375,7 @@ const Contact: React.FC<ContactProps> = ({
                     disabled={formState.isSubmitting}
                   />
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                    <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
@@ -383,13 +383,13 @@ const Contact: React.FC<ContactProps> = ({
                 {formState.errors.email && (
                   <motion.p 
                     id="email-error" 
-                    className="text-red-400 text-sm mt-2 flex items-center gap-2" 
+                    className="text-red-400 text-xs lg:text-sm mt-2 flex items-center gap-2" 
                     role="alert"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {formState.errors.email}
@@ -399,7 +399,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2">
+                <label htmlFor="message" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Message <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -408,8 +408,8 @@ const Contact: React.FC<ContactProps> = ({
                     name="message"
                     value={formState.data.message}
                     onChange={handleInputChange}
-                    rows={5}
-                    className={`w-full px-4 py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 resize-vertical ${
+                    rows={4}
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 resize-vertical text-sm lg:text-base ${
                       formState.errors.message 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
@@ -420,7 +420,7 @@ const Contact: React.FC<ContactProps> = ({
                     disabled={formState.isSubmitting}
                   />
                   <div className="absolute right-3 top-3">
-                    <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                   </div>
@@ -428,13 +428,13 @@ const Contact: React.FC<ContactProps> = ({
                 {formState.errors.message && (
                   <motion.p 
                     id="message-error" 
-                    className="text-red-400 text-sm mt-2 flex items-center gap-2" 
+                    className="text-red-400 text-xs lg:text-sm mt-2 flex items-center gap-2" 
                     role="alert"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {formState.errors.message}
@@ -482,7 +482,7 @@ const Contact: React.FC<ContactProps> = ({
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                className={`w-full bg-[#7484dd] hover:bg-[#6366f1] text-white font-medium py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 ${
+                className={`w-full bg-[#7484dd] hover:bg-[#6366f1] text-white font-medium py-3 lg:py-4 px-4 lg:px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 lg:gap-3 text-sm lg:text-base ${
                   formState.isSubmitting
                     ? 'opacity-50 cursor-not-allowed'
                     : 'hover:shadow-lg hover:shadow-[#7484dd]/25'
