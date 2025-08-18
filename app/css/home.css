@@ -119,9 +119,19 @@
 
 /* Modern card styles */
 .card-modern {
-  @apply bg-white/80 dark:bg-neutral-900/40 backdrop-blur-xl border border-neutral-200 dark:border-neutral-700/30 rounded-3xl p-8 shadow-lg transition-all duration-500;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(229, 231, 235, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
   transform: translateY(0);
+}
+
+.dark .card-modern {
+  background: rgba(23, 23, 23, 0.4);
+  border-color: rgba(64, 64, 64, 0.3);
 }
 
 .card-modern:hover {

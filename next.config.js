@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static optimization
-  output: 'standalone',
-  
   // Image optimization
   images: {
     domains: [],
@@ -12,7 +9,6 @@ const nextConfig = {
   
   // Experimental features for better performance
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'react-icons'],
   },
   
