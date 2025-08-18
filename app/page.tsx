@@ -103,7 +103,7 @@ const Page = () => {
                 </motion.h1>
 
                 <motion.div
-                  className="heading-md text-neutral-200"
+                  className="heading-md text-neutral-800 dark:text-neutral-200"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -204,7 +204,7 @@ const Page = () => {
                     transition={{ delay: 1 + index * 0.1 }}
                     aria-label={social.ariaLabel}
                   >
-                    <div className="p-3 bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50 rounded-xl group-hover:border-primary-500/50 group-hover:bg-primary-500/10 transition-all duration-300">
+                    <div className="p-3 bg-white/80 dark:bg-neutral-800/50 backdrop-blur-sm border border-white dark:border-neutral-700/50 rounded-xl group-hover:border-primary-500/50 group-hover:bg-primary-500/10 transition-all duration-300">
                       <Image
                         src={social.icon}
                         alt={`${social.label} icon`}

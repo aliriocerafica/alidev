@@ -122,7 +122,7 @@ const TechIcon: React.FC<TechIconProps> = ({ src, alt, name, onMouseEnter, onMou
 
       {/* Main Icon Container */}
       <motion.div
-        className="relative w-20 h-20 bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50 rounded-2xl p-4 group-hover:border-[#7484dd]/50 transition-colors duration-300"
+        className="relative w-20 h-20 bg-white/80 dark:bg-neutral-800/50 backdrop-blur-sm border border-white dark:border-neutral-700/50 rounded-2xl p-4 group-hover:border-[#7484dd]/50 transition-colors duration-300"
         variants={iconVariants}
       >
         {/* Icon Shadow */}
@@ -183,7 +183,7 @@ const TechIcon: React.FC<TechIconProps> = ({ src, alt, name, onMouseEnter, onMou
             animate="animate"
             exit="exit"
           >
-            <div className="bg-neutral-900/95 backdrop-blur-sm border border-[#7484dd]/30 text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-lg">
+            <div className="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border border-[#7484dd]/30 text-neutral-900 dark:text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-lg">
               <div className="relative">
                 {name}
                 {/* Label Arrow */}

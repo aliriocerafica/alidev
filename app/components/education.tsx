@@ -109,7 +109,7 @@ const Education: React.FC<EducationProps> = ({
                 className="w-full flex-shrink-0 px-4"
                 variants={itemVariants}
               >
-                <div className="card-modern p-8 h-full">
+                <div className="card-modern p-8 h-full border border-white dark:border-neutral-700/50">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     {/* Institution Image */}
                     <motion.div
@@ -153,7 +153,7 @@ const Education: React.FC<EducationProps> = ({
                           {education.degree}
                         </p>
                         {education.major && (
-                          <p className="text-neutral-300">
+                          <p className="text-neutral-600 dark:text-neutral-300">
                             Major in <span className="text-[#7484dd] font-bold">{education.major}</span>
                           </p>
                         )}

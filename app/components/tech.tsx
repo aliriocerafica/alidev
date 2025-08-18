@@ -147,7 +147,7 @@ const Tech: React.FC<TechProps> = ({
             {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
               <div key={category} className="mb-8">
                 {showCategories && (
-                  <h3 className="text-xl font-semibold text-center text-white mb-6">
+                  <h3 className="text-xl font-semibold text-center text-neutral-900 dark:text-white mb-6">
                     {categoryLabels[category as keyof typeof categoryLabels]}
                   </h3>
                 )}

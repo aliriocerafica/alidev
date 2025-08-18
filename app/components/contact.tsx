@@ -189,7 +189,7 @@ const Contact: React.FC<ContactProps> = ({
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           {/* Contact Information */}
           <motion.div 
             className="space-y-6 lg:space-y-8"
@@ -213,8 +213,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-300 text-sm">Email</p>
-                    <p className="text-white font-medium text-sm lg:text-base break-words">ceraficaalejandrojr@gmail.com</p>
+                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Email</p>
+                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base break-words">ceraficaalejandrojr@gmail.com</p>
                   </div>
                 </motion.div>
 
@@ -230,8 +230,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-300 text-sm">Location</p>
-                    <p className="text-white font-medium text-sm lg:text-base">Buting Pasig City<br className="hidden sm:block" /> Metro Manila</p>
+                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Location</p>
+                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base">Buting Pasig City<br className="hidden sm:block" /> Metro Manila</p>
                   </div>
                 </motion.div>
 
@@ -246,8 +246,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-300 text-sm">Response Time</p>
-                    <p className="text-white font-medium text-sm lg:text-base">Usually within 24 hours</p>
+                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Response Time</p>
+                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base">Usually within 24 hours</p>
                   </div>
                 </motion.div>
               </div>
@@ -309,7 +309,7 @@ const Contact: React.FC<ContactProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6" noValidate>
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="name" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
                   Name <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -319,7 +319,7 @@ const Contact: React.FC<ContactProps> = ({
                     name="name"
                     value={formState.data.name}
                     onChange={handleInputChange}
-                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-100 dark:bg-neutral-800/50 border rounded-xl text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
                       formState.errors.name 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
@@ -354,7 +354,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="email" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
                   Email <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -364,7 +364,7 @@ const Contact: React.FC<ContactProps> = ({
                     name="email"
                     value={formState.data.email}
                     onChange={handleInputChange}
-                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-100 dark:bg-neutral-800/50 border rounded-xl text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 text-sm lg:text-base ${
                       formState.errors.email 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
@@ -399,7 +399,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="message" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
                   Message <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -409,7 +409,7 @@ const Contact: React.FC<ContactProps> = ({
                     value={formState.data.message}
                     onChange={handleInputChange}
                     rows={4}
-                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-800/50 border rounded-xl text-white placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 resize-vertical text-sm lg:text-base ${
+                    className={`w-full px-3 lg:px-4 py-2.5 lg:py-3 bg-neutral-100 dark:bg-neutral-800/50 border rounded-xl text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 transition-all duration-200 focus:outline-none focus:ring-2 resize-vertical text-sm lg:text-base ${
                       formState.errors.message 
                         ? 'border-red-500 focus:ring-red-500/20' 
                         : 'border-neutral-600 focus:border-[#7484dd] focus:ring-[#7484dd]/20'
