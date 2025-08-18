@@ -32,22 +32,36 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   useEffect(() => {
     setMounted(true);
-    const stored = (localStorage.getItem(THEME_STORAGE_KEY) as Theme | null);
-    if (stored === "light" || stored === "dark") {
-      setThemeState(stored);
-      applyThemeClass(stored);
-      return;
+    
+    // Get stored theme or system preference
+    let initialTheme: Theme = "dark";
+    
+    try {
+      const stored = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+      if (stored === "light" || stored === "dark") {
+        initialTheme = stored;
+      } else {
+        // Check system preference
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        initialTheme = prefersDark ? "dark" : "light";
+      }
+    } catch (e) {
+      // Fallback to dark theme
+      initialTheme = "dark";
     }
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial: Theme = prefersDark ? "dark" : "light";
-    setThemeState(initial);
-    applyThemeClass(initial);
+    
+    setThemeState(initialTheme);
+    applyThemeClass(initialTheme);
   }, []);
 
   const setTheme = useCallback((t: Theme) => {
     setThemeState(t);
     if (mounted) {
-      localStorage.setItem(THEME_STORAGE_KEY, t);
+      try {
+        localStorage.setItem(THEME_STORAGE_KEY, t);
+      } catch (e) {
+        // Ignore localStorage errors
+      }
       applyThemeClass(t);
     }
   }, [mounted]);
@@ -60,7 +74,11 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
-    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+    return (
+      <div style={{ visibility: 'hidden' }}>
+        {children}
+      </div>
+    );
   }
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
