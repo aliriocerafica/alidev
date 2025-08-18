@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import Navbar from "./components/navbar";
@@ -10,12 +10,19 @@ import Certificate from "./components/certificate";
 import Works from "./components/works";
 import Tech from "./components/tech";
 import AdditionalSkills from "./components/additionalSkills";
+import SplashScreen from "./components/splash-screen";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "./data/constants";
 import "./css/home.css";
 import Image from "next/image";
 import { ReactTyped } from "react-typed";
 
 const Page = () => {
+  const [showSplash, setShowSplash] = useState(true);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.classList.add("fade-in");
@@ -51,8 +58,12 @@ const Page = () => {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-hidden">
-      <Navbar />
+    <>
+      {showSplash && (
+        <SplashScreen onComplete={handleSplashComplete} duration={3500} />
+      )}
+      <main className="min-h-screen overflow-x-hidden">
+        <Navbar />
       
       {/* Hero Section */}
       <section className="section-padding min-h-screen flex items-center justify-center relative">
@@ -447,6 +458,7 @@ const Page = () => {
       {/* Footer */}
       <Footer />
     </main>
+    </>
   );
 };
 
