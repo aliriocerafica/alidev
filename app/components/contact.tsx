@@ -213,8 +213,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Email</p>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base break-words">ceraficaalejandrojr@gmail.com</p>
+                    <p className="text-neutral-400 text-sm">Email</p>
+                    <p className="text-white font-medium text-sm lg:text-base break-words">ceraficaalejandrojr@gmail.com</p>
                   </div>
                 </motion.div>
 
@@ -230,8 +230,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Location</p>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base">Buting Pasig City<br className="hidden sm:block" /> Metro Manila</p>
+                    <p className="text-neutral-400 text-sm">Location</p>
+                    <p className="text-white font-medium text-sm lg:text-base">Buting Pasig City<br className="hidden sm:block" /> Metro Manila</p>
                   </div>
                 </motion.div>
 
@@ -246,8 +246,8 @@ const Contact: React.FC<ContactProps> = ({
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-neutral-500 dark:text-neutral-300 text-sm">Response Time</p>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm lg:text-base">Usually within 24 hours</p>
+                    <p className="text-neutral-400 text-sm">Response Time</p>
+                    <p className="text-white font-medium text-sm lg:text-base">Usually within 24 hours</p>
                   </div>
                 </motion.div>
               </div>
@@ -309,7 +309,7 @@ const Contact: React.FC<ContactProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6" noValidate>
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="name" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Name <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -354,7 +354,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="email" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Email <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">
@@ -399,7 +399,7 @@ const Contact: React.FC<ContactProps> = ({
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-neutral-900 dark:text-white font-medium mb-2 text-sm lg:text-base">
+                <label htmlFor="message" className="block text-white font-medium mb-2 text-sm lg:text-base">
                   Message <span className="text-[#7484dd]">*</span>
                 </label>
                 <div className="relative">

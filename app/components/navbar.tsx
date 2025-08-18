@@ -1,8 +1,7 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "../theme-provider";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,7 +67,7 @@ const Navbar = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800/50 shadow-hard" 
+          ? "bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-700 shadow-hard" 
           : "bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
@@ -89,7 +88,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center space-x-2">
               <span className="font-display font-bold text-2xl lg:text-3xl">
                 <span style={{ color: '#7484dd' }}>ali</span>
-                <span className="text-neutral-900 dark:text-white">DEV</span>
+                <span className="text-white">DEV</span>
               </span>
             </Link>
           </motion.div>
@@ -106,9 +105,9 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   onClick={item.id ? (e) => handleSmoothScroll(e, item.id) : undefined}
-                  className={`relative text-sm lg:text-base font-medium transition-all duration-300 group ${
-                    isScrolled ? "text-neutral-700 dark:text-neutral-200" : "text-neutral-900 dark:text-white"
-                  } hover:text-[#7484dd]`}
+                                     className={`relative text-sm lg:text-base font-medium transition-all duration-300 group ${
+                     isScrolled ? "text-white" : "text-white"
+                   } hover:text-[#7484dd]`}
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7484dd] rounded-full transition-all duration-300 group-hover:w-full" />
@@ -117,9 +116,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Theme Toggle, Contact Button & Mobile Menu Toggle */}
+          {/* Contact Button & Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
-            <ThemeToggle />
             {/* Contact Button (Desktop) */}
             <motion.div
               className="hidden lg:block"
@@ -143,7 +141,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2 rounded-xl bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-neutral-200 dark:border-neutral-700/50"
+              className="lg:hidden p-2 rounded-xl bg-white/90 backdrop-blur-xl border border-neutral-200"
               onClick={toggleMobileMenu}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -154,7 +152,7 @@ const Navbar = () => {
                 className="w-6 h-6 flex flex-col justify-center items-center"
               >
                 <motion.span
-                  className="w-5 h-0.5 bg-neutral-900 dark:bg-white rounded-full"
+                  className="w-5 h-0.5 bg-neutral-900 rounded-full"
                   variants={{
                     closed: { rotate: 0, y: 0 },
                     open: { rotate: 45, y: 6 }
@@ -162,7 +160,7 @@ const Navbar = () => {
                   transition={{ duration: 0.3 }}
                 />
                 <motion.span
-                  className="w-5 h-0.5 bg-neutral-900 dark:bg-white rounded-full mt-1.5"
+                  className="w-5 h-0.5 bg-neutral-900 rounded-full mt-1.5"
                   variants={{
                     closed: { opacity: 1 },
                     open: { opacity: 0 }
@@ -170,7 +168,7 @@ const Navbar = () => {
                   transition={{ duration: 0.3 }}
                 />
                 <motion.span
-                  className="w-5 h-0.5 bg-neutral-900 dark:bg-white rounded-full mt-1.5"
+                  className="w-5 h-0.5 bg-neutral-900 rounded-full mt-1.5"
                   variants={{
                     closed: { rotate: 0, y: 0 },
                     open: { rotate: -45, y: -6 }
@@ -192,7 +190,7 @@ const Navbar = () => {
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-700/50 rounded-2xl p-6 space-y-4 shadow-2xl">
+              <div className="bg-white/95 backdrop-blur-xl border border-neutral-200 rounded-2xl p-6 space-y-4 shadow-2xl">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -203,7 +201,7 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       onClick={item.id ? (e) => handleSmoothScroll(e, item.id) : undefined}
-                      className="block text-neutral-900 dark:text-white font-medium py-3 px-4 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800/80 transition-colors duration-200"
+                      className="block text-neutral-900 font-medium py-3 px-4 rounded-xl hover:bg-neutral-100 transition-colors duration-200"
                     >
                       {item.label}
                     </Link>
@@ -215,7 +213,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
-                  className="pt-4 border-t border-white/10"
+                  className="pt-4 border-t border-neutral-200"
                 >
                   <Link
                     href="#contact"

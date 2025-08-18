@@ -131,7 +131,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-neutral-900 dark:text-white font-bold text-lg lg:text-xl mb-2 lg:mb-3 group-hover:text-[#7484dd] transition-colors duration-300">{project.title}</h4>
+                  <h4 className="text-white font-bold text-lg lg:text-xl mb-2 lg:mb-3 group-hover:text-[#7484dd] transition-colors duration-300">{project.title}</h4>
                   <p className="text-neutral-400 text-xs lg:text-sm font-medium">View Project Image</p>
                 </div>
                 <div className="flex gap-2 lg:gap-3">
@@ -159,7 +159,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onHover }) => {
       {/* Project Info */}
       <div className="space-y-4">
         <div className="text-center">
-          <h3 className="heading-sm text-neutral-900 dark:text-white mb-2">{project.title}</h3>
+          <h3 className="heading-sm text-white mb-2">{project.title}</h3>
           {project.description && (
             <p className="text-muted text-sm">{project.description}</p>
           )}

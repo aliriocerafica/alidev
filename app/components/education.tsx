@@ -149,11 +149,11 @@ const Education: React.FC<EducationProps> = ({
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                       >
-                        <p className="text-body text-lg font-semibold">
+                        <p className="text-white text-lg font-semibold">
                           {education.degree}
                         </p>
                         {education.major && (
-                          <p className="text-neutral-600 dark:text-neutral-300">
+                          <p className="text-neutral-300">
                             Major in <span className="text-[#7484dd] font-bold">{education.major}</span>
                           </p>
                         )}
@@ -166,7 +166,7 @@ const Education: React.FC<EducationProps> = ({
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                       >
-                        <div className="flex items-center gap-2 text-neutral-200">
+                        <div className="flex items-center gap-2 text-neutral-300">
                           <svg className="w-5 h-5 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-4 8a2 2 0 100-4 2 2 0 000 4zm0 0v3m-3-3h6m-9-1v1a3 3 0 003 3h6a3 3 0 003-3v-1M5 7h14a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2z" />
                           </svg>
@@ -176,7 +176,7 @@ const Education: React.FC<EducationProps> = ({
                         </div>
                         
                         {education.location && (
-                          <div className="flex items-center gap-2 text-neutral-300">
+                          <div className="flex items-center gap-2 text-neutral-400">
                             <svg className="w-5 h-5 text-[#7484dd]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import Navbar from "./components/navbar";
@@ -10,19 +10,12 @@ import Certificate from "./components/certificate";
 import Works from "./components/works";
 import Tech from "./components/tech";
 import AdditionalSkills from "./components/additionalSkills";
-import SplashScreen from "./components/splash-screen";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "./data/constants";
 import "./css/home.css";
 import Image from "next/image";
 import { ReactTyped } from "react-typed";
 
 const Page = () => {
-  const [showSplash, setShowSplash] = useState(true);
-
-  const handleSplashComplete = () => {
-    setShowSplash(false);
-  };
-
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.classList.add("fade-in");
@@ -58,12 +51,8 @@ const Page = () => {
   }, []);
 
   return (
-    <>
-      {showSplash && (
-        <SplashScreen onComplete={handleSplashComplete} duration={3500} />
-      )}
-      <main className="min-h-screen overflow-x-hidden">
-        <Navbar />
+    <main className="min-h-screen overflow-x-hidden">
+      <Navbar />
       
       {/* Hero Section */}
       <section className="section-padding min-h-screen flex items-center justify-center relative">
@@ -114,7 +103,7 @@ const Page = () => {
                 </motion.h1>
 
                 <motion.div
-                  className="heading-md text-neutral-800 dark:text-neutral-200"
+                  className="heading-md text-neutral-200"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -215,7 +204,7 @@ const Page = () => {
                     transition={{ delay: 1 + index * 0.1 }}
                     aria-label={social.ariaLabel}
                   >
-                    <div className="p-3 bg-white/80 dark:bg-neutral-800/50 backdrop-blur-sm border border-white dark:border-neutral-700/50 rounded-xl group-hover:border-primary-500/50 group-hover:bg-primary-500/10 transition-all duration-300">
+                    <div className="p-3 bg-white/80 backdrop-blur-sm border border-white rounded-xl group-hover:border-primary-500/50 group-hover:bg-primary-500/10 transition-all duration-300">
                       <Image
                         src={social.icon}
                         alt={`${social.label} icon`}
@@ -250,6 +239,7 @@ const Page = () => {
           </motion.div>
         </motion.div>
       </section>
+
       {/* About Section */}
       <section id="about" className="section-padding">
         <div className="container-modern">
@@ -458,7 +448,6 @@ const Page = () => {
       {/* Footer */}
       <Footer />
     </main>
-    </>
   );
 };
 
