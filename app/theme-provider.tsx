@@ -28,8 +28,10 @@ function applyThemeClass(theme: Theme) {
 
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>("dark");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const stored = (localStorage.getItem(THEME_STORAGE_KEY) as Theme | null);
     if (stored === "light" || stored === "dark") {
       setThemeState(stored);
@@ -44,15 +46,22 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
   const setTheme = useCallback((t: Theme) => {
     setThemeState(t);
-    localStorage.setItem(THEME_STORAGE_KEY, t);
-    applyThemeClass(t);
-  }, []);
+    if (mounted) {
+      localStorage.setItem(THEME_STORAGE_KEY, t);
+      applyThemeClass(t);
+    }
+  }, [mounted]);
 
   const toggleTheme = useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
   }, [theme, setTheme]);
 
   const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return <div style={{ visibility: 'hidden' }}>{children}</div>;
+  }
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
@@ -62,6 +71,7 @@ export default ThemeProvider;
 export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = React.useContext(ThemeContext);
   const isDark = theme === "dark";
+  
   return (
     <button
       type="button"
