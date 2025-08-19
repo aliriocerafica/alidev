@@ -108,8 +108,8 @@ export default function Page() {
     <div className="flex flex-col lg:flex-row ">
       <Sidebar />
       <div className="flex-1 flex justify-center items-center p-4 sm:p-4 md:p-8 lg:p-10">
-        <div className="form bg-white border border-white  shadow-inner p-4 rounded-2xl bg-opacity-20 shadow-opacity-20 shadow-lg border-1 border-gray-400">
-          <div className="backdrop-blur-md bg-black bg-opacity-60 shadow-innerr shadow-lg rounded-lg p-8 max-w-2xl w-full shadow-opacity-60">
+        <div className="form bg-white/20 border border-gray-400 shadow-lg p-4 rounded-2xl">
+          <div className="backdrop-blur-md bg-black/60 rounded-lg p-8 max-w-2xl w-full">
             <h1 className="text-3xl font-normal text-white mb-6">
               BitLocker TPM Key Generator APABS
             </h1>
@@ -119,7 +119,7 @@ export default function Page() {
                 Device Type:
               </label>
               <select
-                className="shadow-md shadow-inneer border-white border-2 text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="shadow-md border-2 border-white text-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
                 onChange={(e) => setDeviceType(e.target.value)}
                 value={deviceType}
                 aria-label="Device Type"
@@ -137,7 +137,7 @@ export default function Page() {
                 Generate Single Key or Batch:
               </label>
               <select
-                className="text-white bg-gray-500 rounded-md p-2  hadow-md shadow-inneer border-white border-2  w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="text-white bg-gray-500 rounded-md p-2 shadow-md border-2 border-white w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
                 onChange={(e) => setIsBatch(e.target.value === "batch")}
                 aria-label="Key Generation Type"
               >
@@ -159,7 +159,7 @@ export default function Page() {
                     ? "Enter Device IDs (e.g., 1, 2, 3)"
                     : "Enter Device ID (e.g., 1)"
                 }
-                className="text-white shadow-md shadow-inneer border-white border-2  bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
+                className="text-white shadow-md border-2 border-white bg-gray-500 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-sky-500"
                 onChange={(e) => {
                   if (isBatch) {
                     setDeviceIds(e.target.value);
@@ -174,7 +174,7 @@ export default function Page() {
 
             <button
               onClick={generateKeys}
-              className="bg-[#5a4bad] shadow-inner shadow-md shadow-gray text-white p-3 rounded-md w-full hover:bg-gray-800 transition duration-200"
+              className="bg-[#5a4bad] shadow-md text-white p-3 rounded-md w-full hover:bg-gray-800 transition duration-200"
             >
               {isKeyGenerated ? "Generate New Key" : "Generate Key"}
             </button>
@@ -187,7 +187,7 @@ export default function Page() {
                 {keys.map((k, index) => (
                   <div
                     key={index}
-                    className="border text-blue-400 font-semibold border-white rounded-md p-2 mb-1 flex justify-between items-center"
+                    className="border border-white text-blue-400 font-semibold rounded-md p-2 mb-1 flex justify-between items-center"
                   > 
                  <span>{`${k}`}</span>
                     <button
@@ -223,7 +223,7 @@ export default function Page() {
                 <div className="flex space-x-4 mt-4">
                   <button
                     onClick={() => downloadKeys("txt")}
-                    className="bg-green-500 text-white p-2 shadow-inner shadow-green-200 rounded-md flex items-center hover:bg-green-600"
+                    className="bg-green-500 text-white p-2 shadow-md rounded-md flex items-center hover:bg-green-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

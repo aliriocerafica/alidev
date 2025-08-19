@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Resume from "./Resume";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -118,6 +120,23 @@ const Navbar = () => {
 
           {/* Contact Button & Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
+            {/* View Resume Button (Desktop) */}
+            <motion.div
+              className="hidden lg:block"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+                             <motion.button
+                 onClick={() => setIsResumeOpen(true)}
+                 className="bg-[#7484dd] text-white hover:bg-[#6366f1] px-4 py-2 rounded-xl transition-all duration-200 mr-2"
+                 whileHover={{ scale: 1.05 }}
+                 whileTap={{ scale: 0.95 }}
+               >
+                 View Resume
+               </motion.button>
+            </motion.div>
+
             {/* Contact Button (Desktop) */}
             <motion.div
               className="hidden lg:block"
@@ -208,12 +227,31 @@ const Navbar = () => {
                   </motion.div>
                 ))}
                 
-                {/* Mobile Contact Button */}
+                {/* Mobile View Resume Button */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   className="pt-4 border-t border-neutral-200"
+                >
+                                     <motion.button
+                     onClick={() => {
+                       setIsResumeOpen(true);
+                       setMobileMenuOpen(false);
+                     }}
+                     className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-6 py-3 rounded-xl transition-all duration-200 mb-3"
+                     whileHover={{ scale: 1.02 }}
+                     whileTap={{ scale: 0.98 }}
+                   >
+                     View Resume
+                   </motion.button>
+                </motion.div>
+
+                {/* Mobile Contact Button */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navItems.length + 1) * 0.05 }}
                 >
                   <Link
                     href="#contact"
@@ -233,6 +271,9 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Resume Modal */}
+      <Resume isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </motion.header>
   );
 };
