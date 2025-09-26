@@ -222,8 +222,8 @@ const Works: React.FC<WorksProps> = ({
       {...props}
     >
       {/* Section Header */}
-      <div className="text-center mb-20">
-        <h2 className="heading-lg gradient-text-primary mb-4">{title}</h2>
+      <div className="text-center mb-12">
+        <h2 className="heading-lg gradient-text-primary mb-3">{title}</h2>
         {showDivider && (
           <div className="w-20 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto rounded-full" />
         )}

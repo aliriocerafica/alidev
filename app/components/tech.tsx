@@ -37,16 +37,16 @@ const TechGrid: React.FC<TechGridProps> = ({
   }, [onSkillHoverExit]);
 
   return (
-    <div className="mx-auto w-full p-4 mb-8">
-      <div className="techstack mb-6">
+    <div className="mx-auto w-full p-3 mb-6">
+      <div className="techstack mb-4">
         {/* Responsive Grid Layout */}
         <div className="w-full">
           <ul 
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-6 md:gap-8 lg:gap-10 text-lg px-4"
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-9 gap-4 md:gap-6 lg:gap-8 text-base px-3"
             role="list"
             aria-label="Technical skills"
             style={{ 
-              minHeight: "200px"
+              minHeight: "160px"
             }}
           >
             {skills.map((skill) => (

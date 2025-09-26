@@ -48,7 +48,7 @@ const Certificate: React.FC<CertificateProps> = ({
       {...props}
     >
       {/* Section Header */}
-      <div className="text-center mb-20">
+      <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-4 mb-4">
           <h2 className="heading-lg gradient-text-primary">{title}</h2>
           {iconSrc && (
@@ -73,10 +73,10 @@ const Certificate: React.FC<CertificateProps> = ({
             </motion.div>
           )}
         </div>
-        <div className="w-20 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto rounded-full" />
+        <div className="w-16 h-1 bg-gradient-to-r from-primary-400 to-secondary-400 mx-auto rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Content Section */}
         <div className="order-2 lg:order-1 space-y-8">
           <div className="card-modern p-8 space-y-12">

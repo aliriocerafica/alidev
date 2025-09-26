@@ -58,12 +58,12 @@ const Page = () => {
       <section className="section-padding min-h-screen flex items-center justify-center relative">
         {/* Background Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-gentle" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/4 left-1/4 w-60 h-60 bg-primary-500/10 rounded-full blur-3xl animate-pulse-gentle" />
+          <div className="absolute bottom-1/4 right-1/4 w-52 h-52 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-gentle" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-modern relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             
             {/* Profile Image */}
             <motion.div
@@ -77,18 +77,18 @@ const Page = () => {
                 <Image
                   src="/grad2.png"
                   alt="Ali Cerafica - Frontend Developer"
-                  width={500}
-                  height={500}
-                  className="relative z-10 w-full max-w-md h-auto animate-float-gentle"
+                  width={350}
+                  height={350}
+                  className="relative z-10 w-full max-w-xs h-auto animate-float-gentle"
                   priority
                 />
               </div>
             </motion.div>
 
             {/* Hero Content */}
-            <div className="order-1 lg:order-2 text-center lg:text-left space-y-8">
+            <div className="order-1 lg:order-2 text-center lg:text-left space-y-4">
               <motion.div
-                className="space-y-4"
+                className="space-y-2"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -151,7 +151,7 @@ const Page = () => {
 
               {/* CTA Buttons */}
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-2 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
@@ -185,7 +185,7 @@ const Page = () => {
 
               {/* Social Links */}
               <motion.div
-                className="flex gap-6 justify-center lg:justify-start"
+                className="flex gap-3 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}

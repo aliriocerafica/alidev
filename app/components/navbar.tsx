@@ -77,8 +77,8 @@ const Navbar = () => {
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <nav className="container-modern">
-        <div className={`flex items-center justify-between h-20 px-6 lg:px-8 ${
-          isScrolled ? "" : "mt-4"
+        <div className={`flex items-center justify-between h-14 px-4 lg:px-6 ${
+          isScrolled ? "" : "mt-1"
         }`}>
           
           {/* Logo */}
@@ -88,7 +88,7 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link href="/" className="flex items-center space-x-2">
-              <span className="font-display font-bold text-2xl lg:text-3xl">
+              <span className="font-display font-bold text-lg lg:text-xl">
                 <span style={{ color: '#7484dd' }}>ali</span>
                 <span className="text-white">DEV</span>
               </span>
@@ -129,7 +129,7 @@ const Navbar = () => {
             >
                              <motion.button
                  onClick={() => setIsResumeOpen(true)}
-                 className="bg-[#7484dd] text-white hover:bg-[#6366f1] px-4 py-2 rounded-xl transition-all duration-200 mr-2"
+                 className="bg-[#7484dd] text-white hover:bg-[#6366f1] px-3 py-1.5 rounded-md transition-all duration-200 text-xs border-2 border-[#7484dd]"
                  whileHover={{ scale: 1.05 }}
                  whileTap={{ scale: 0.95 }}
                >
@@ -149,7 +149,7 @@ const Navbar = () => {
                 onClick={(e) => handleSmoothScroll(e, "contact")}
               >
                 <motion.button
-                  className="border-2 border-[#7484dd] text-[#7484dd] hover:bg-[#7484dd] hover:text-white px-4 py-2 rounded-xl transition-all duration-200"
+                  className="border-2 border-[#7484dd] text-[#7484dd] hover:bg-[#7484dd] hover:text-white px-3 py-1.5 rounded-md transition-all duration-200 text-xs"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -160,7 +160,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="lg:hidden p-2 rounded-xl bg-white/90 backdrop-blur-xl border border-neutral-200"
+              className="lg:hidden p-1.5 rounded-lg bg-white/90 backdrop-blur-xl border border-neutral-200"
               onClick={toggleMobileMenu}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -168,7 +168,7 @@ const Navbar = () => {
             >
               <motion.div
                 animate={mobileMenuOpen ? "open" : "closed"}
-                className="w-6 h-6 flex flex-col justify-center items-center"
+                className="w-5 h-5 flex flex-col justify-center items-center"
               >
                 <motion.span
                   className="w-5 h-0.5 bg-neutral-900 rounded-full"
@@ -239,7 +239,7 @@ const Navbar = () => {
                        setIsResumeOpen(true);
                        setMobileMenuOpen(false);
                      }}
-                     className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-6 py-3 rounded-xl transition-all duration-200 mb-3"
+                     className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-3 py-1.5 rounded-md transition-all duration-200 mb-2 text-xs"
                      whileHover={{ scale: 1.02 }}
                      whileTap={{ scale: 0.98 }}
                    >
@@ -258,7 +258,7 @@ const Navbar = () => {
                     onClick={(e) => handleSmoothScroll(e, "contact")}
                   >
                     <motion.button
-                      className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-6 py-3 rounded-xl transition-all duration-200"
+                      className="w-full bg-[#7484dd] text-white hover:bg-[#6366f1] px-3 py-1.5 rounded-md transition-all duration-200 text-xs"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >

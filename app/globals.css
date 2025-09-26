@@ -180,10 +180,10 @@ body::before {
   background: linear-gradient(135deg, #7484dd 0%, #6366f1 100%);
   color: white;
   font-weight: 600;
-  padding: 0.875rem 2rem;
-  border-radius: 1rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 25px -5px rgba(116, 132, 221, 0.3), 0 4px 10px -2px rgba(116, 132, 221, 0.2);
+  box-shadow: 0 6px 16px -5px rgba(116, 132, 221, 0.3), 0 3px 6px -2px rgba(116, 132, 221, 0.2);
   border: 1px solid rgba(116, 132, 221, 0.2);
   position: relative;
   overflow: hidden;
@@ -215,10 +215,10 @@ body::before {
   background: #7484dd;
   color: white;
   font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   transition: all 0.2s;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.1), 0 2px 3px -1px rgba(0, 0, 0, 0.06);
 }
 
 .btn-secondary:hover {
@@ -231,8 +231,8 @@ body::before {
   border: 2px solid #7484dd;
   color: #7484dd;
   font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   background: transparent;
   transition: all 0.2s;
 }
@@ -244,37 +244,37 @@ body::before {
 
 /* Modern spacing and layout */
 .section-padding {
-  @apply py-20 px-4 lg:px-8;
+  @apply py-8 px-4 lg:px-6;
 }
 
 .container-modern {
-  @apply max-w-7xl mx-auto;
+  @apply max-w-5xl mx-auto;
 }
 
 /* Enhanced typography */
 .heading-xl {
-  @apply font-display font-bold text-6xl lg:text-8xl leading-none tracking-tight;
+  @apply font-display font-bold text-3xl lg:text-4xl leading-none tracking-tight;
 }
 
 .heading-lg {
-  @apply font-display font-bold text-4xl lg:text-6xl leading-tight tracking-tight;
+  @apply font-display font-bold text-2xl lg:text-3xl leading-tight tracking-tight;
 }
 
 .heading-md {
-  @apply font-display font-semibold text-2xl lg:text-4xl leading-tight;
+  @apply font-display font-semibold text-lg lg:text-xl leading-tight;
 }
 
 .heading-sm {
-  @apply font-display font-medium text-xl lg:text-2xl leading-snug;
+  @apply font-display font-medium text-base lg:text-lg leading-snug;
 }
 
 .text-body {
-  @apply text-base lg:text-lg leading-relaxed;
+  @apply text-xs lg:text-sm leading-relaxed;
   color: #e5e7eb;
 }
 
 .text-muted {
-  @apply text-sm lg:text-base leading-relaxed;
+  @apply text-xs leading-relaxed;
   color: #9ca3af;
 }
 

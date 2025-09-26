@@ -90,14 +90,19 @@ const AdditionalSkills = () => {
               </h3>
 
               {/* Description */}
-              <p className="text-neutral-200 text-sm leading-relaxed">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+              <p className="text-neutral-200 text-sm leading-relaxed mb-4">
+                {skill.title === "Microsoft Administration" && "Expert in Microsoft 365 administration, user management, and cloud service integration for modern business environments."}
+                {skill.title === "Network Installation & Configuration" && "Skilled in setting up dedicated internet connections, access points, and optimizing network infrastructure for reliable connectivity."}
+                {skill.title === "WiFi Setup & Troubleshooting" && "Proficient in wireless network configuration, signal optimization, and resolving connectivity issues across various environments."}
+                {skill.title === "Hardware & Software Troubleshooting" && "Experienced in diagnosing and resolving computer hardware issues, software conflicts, and system performance optimization."}
+                {skill.title === "System Maintenance" && "Capable of Windows OS installations, system reformatting, software updates, and comprehensive system maintenance procedures."}
+                {skill.title === "Canva Design" && "Creative designer specializing in graphic design, video animations, and marketing materials using modern design tools and techniques."}
               </p>
 
-              {/* Hover Details */}
-              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {/* Skill Details - Always Visible */}
+              <div className="mt-4">
                 <ul className="space-y-2">
-                  {skill.details.slice(0, 2).map((detail, detailIndex) => (
+                  {skill.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-[#7484dd] rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-neutral-300 text-xs leading-relaxed">
@@ -105,11 +110,6 @@ const AdditionalSkills = () => {
                       </span>
                     </li>
                   ))}
-                  {skill.details.length > 2 && (
-                    <li className="text-[#7484dd] text-xs font-medium">
-                      +{skill.details.length - 2} more skills
-                    </li>
-                  )}
                 </ul>
               </div>
             </motion.div>

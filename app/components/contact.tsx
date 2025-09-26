@@ -169,7 +169,7 @@ const Contact: React.FC<ContactProps> = ({
     >
       <div className="container-modern">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-8 lg:mb-10">
           <motion.h2 
             className="heading-lg gradient-text-primary mb-3 lg:mb-4"
             initial={{ opacity: 0, y: 30 }}
@@ -178,7 +178,7 @@ const Contact: React.FC<ContactProps> = ({
           >
             {title}
           </motion.h2>
-          <div className="w-16 lg:w-20 h-1 bg-[#7484dd] mx-auto rounded-full mb-4 lg:mb-6" />
+          <div className="w-12 lg:w-16 h-1 bg-[#7484dd] mx-auto rounded-full mb-3 lg:mb-4" />
           <motion.p 
             className="text-body text-center max-w-2xl mx-auto px-4 lg:px-0 text-sm lg:text-base"
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +189,7 @@ const Contact: React.FC<ContactProps> = ({
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
           {/* Contact Information */}
           <motion.div 
             className="space-y-6 lg:space-y-8"
